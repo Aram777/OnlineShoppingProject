@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '13488431',
+	'hostname' => 'amitis.mysql.database.azure.com',
+	'username' => 'g6@amitis',
+	'password' => '1234567890',
 	'database' => 'onlineshopping',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
