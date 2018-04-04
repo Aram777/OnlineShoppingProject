@@ -21,6 +21,18 @@ class Pricecategory_ctl extends REST_Controller
     }
     public function pricecategory_get()
     {
+        $pricecategory = $this->Pricecategory_mdl->get_Pricecategory();
+
+        if ($pricecategory) {
+            // Set the response and exit
+            $this->response($pricecategory, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        } else {
+            // Set the response and exit
+            $this->response([
+                'status' => false,
+                'message' => 'No users were found',
+            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
 
     }
     public function pricecategory_post()
