@@ -13,4 +13,8 @@ class Orders_mdl extends CI_model
     function add_orders($add_data){
         $this->db->insert('orders',$add_data); 
      }
-}
+     function update_orders($ORDERSID, $update_data){
+        $this->db->where('ORDERSID',$ORDERSID);
+        $this->db->update('orders',$update_data);
+      }
+    }

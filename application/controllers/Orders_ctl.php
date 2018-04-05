@@ -21,7 +21,7 @@ class Orders_ctl extends REST_Controller
     }
     public function orders_get()
     {
-        $products=$this->Orders_mdl->get_orders();
+        $orders=$this->Orders_mdl->get_orders();
         
                 $id = $this->get('id');
         
@@ -110,6 +110,33 @@ class Orders_ctl extends REST_Controller
     }
     public function orders_put()
     {
+        // Update the orders
+
+
+        $ORDERSID=$this->put('ORDERSID');
+        $update_data=array(
+            'SYSTEMUSERSID'=>$this->put('SYSTEMUSERSID'),
+            'PRODUCTSID'=>$this->put('PRODUCTSID'),
+            'ORDERDATE'=>$this->put('ORDERDATE'),
+            'ORDERSTATUS'=>$this->put('ORDERSTATUS'),
+            'PRODUCTRATE'=>$this->put('PRODUCTRATE'),
+            'ORDERQUANTITY'=>$this->put('ORDERQUANTITY'),
+            'ORDERPRICE'=>$this->put('ORDERPRICE')
+        );
+        $this->Orders_mdl->update_orders($ORDERSID, $update_data);
+        $message = [
+            'ORDERSID'=>$this->put('ORDERSID'),            
+            'SYSTEMUSERSID'=>$this->put('SYSTEMUSERSID'),
+            'PRODUCTSID'=>$this->put('PRODUCTSID'),
+            'ORDERDATE'=>$this->put('ORDERDATE'),
+            'ORDERSTATUS'=>$this->put('ORDERSTATUS'),
+            'PRODUCTRATE'=>$this->put('PRODUCTRATE'),
+            'ORDERQUANTITY'=>$this->put('ORDERQUANTITY'),
+            'ORDERPRICE'=>$this->put('ORDERPRICE'),
+            'message' => 'Updates a resource'
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+    
     }
     public function orders_delete()
     {
