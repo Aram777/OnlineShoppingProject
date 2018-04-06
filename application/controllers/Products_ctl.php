@@ -83,6 +83,41 @@ class Products_ctl extends REST_Controller
     }
     public function products_post()
     {
+        
+// Add a new order
+$add_data=array(
+
+    'PRODUCTSID'=>$this->post('PRODUCTSID'),
+    'PRODUCTSCATEGORYID'=>$this->post('PRODUCTSCATEGORYID'),
+    'PRICECATEGORYID'=>$this->post('PRICECATEGORYID'),
+    'PRODUCNAME'=>$this->post('PRODUCNAME'),
+    'PRODUCTQUANTITY'=>$this->post('PRODUCTQUANTITY'),
+    'PRODUCTDESC'=>$this->post('PRODUCTDESC'),
+    'PRODUCTPICTURE'=>$this->post('PRODUCTPICTURE'),
+    'PRODUTMAXCAPASITY'=>$this->post('PRODUTMAXCAPASITY'),
+    'PRODUCTORDERPOINT'=>$this->post('PRODUCTORDERPOINT'),
+    'PRODUCTSTATE'=>$this->post('PRODUCTSTATE'),
+    'PRODUCTADDINGDATE'=>$this->post('PRODUCTADDINGDATE'),
+    'PRODUCTPRICE'=>$this->post('PRODUCTPRICE')
+  );
+  $this->Orders_mdl->add_orders($add_data);
+  $message = [
+    'PRODUCTSID'=>$this->post('PRODUCTSID'),
+    'PRODUCTSCATEGORYID'=>$this->post('PRODUCTSCATEGORYID'),
+    'PRICECATEGORYID'=>$this->post('PRICECATEGORYID'),
+    'PRODUCNAME'=>$this->post('PRODUCNAME'),
+    'PRODUCTQUANTITY'=>$this->post('PRODUCTQUANTITY'),
+    'PRODUCTDESC'=>$this->post('PRODUCTDESC'),
+    'PRODUCTPICTURE'=>$this->post('PRODUCTPICTURE'),
+    'PRODUTMAXCAPASITY'=>$this->post('PRODUTMAXCAPASITY'),
+    'PRODUCTORDERPOINT'=>$this->post('PRODUCTORDERPOINT'),
+    'PRODUCTSTATE'=>$this->post('PRODUCTSTATE'),
+    'PRODUCTADDINGDATE'=>$this->post('PRODUCTADDINGDATE'),
+    'PRODUCTPRICE'=>$this->post('PRODUCTPRICE'),
+   
+      'message' => 'Added a resource'
+  ];
+  $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
 
     }
     public function products_put()
