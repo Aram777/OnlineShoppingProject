@@ -83,11 +83,10 @@ class Products_ctl extends REST_Controller
     }
     public function products_post()
     {
-        
+
 // Add a new order
 $add_data=array(
 
-    'PRODUCTSID'=>$this->post('PRODUCTSID'),
     'PRODUCTSCATEGORYID'=>$this->post('PRODUCTSCATEGORYID'),
     'PRICECATEGORYID'=>$this->post('PRICECATEGORYID'),
     'PRODUCNAME'=>$this->post('PRODUCNAME'),
@@ -100,9 +99,8 @@ $add_data=array(
     'PRODUCTADDINGDATE'=>$this->post('PRODUCTADDINGDATE'),
     'PRODUCTPRICE'=>$this->post('PRODUCTPRICE')
   );
-  $this->Orders_mdl->add_orders($add_data);
+  $this->Products_mdl->add_products($add_data);
   $message = [
-    'PRODUCTSID'=>$this->post('PRODUCTSID'),
     'PRODUCTSCATEGORYID'=>$this->post('PRODUCTSCATEGORYID'),
     'PRICECATEGORYID'=>$this->post('PRICECATEGORYID'),
     'PRODUCNAME'=>$this->post('PRODUCNAME'),
@@ -114,7 +112,7 @@ $add_data=array(
     'PRODUCTSTATE'=>$this->post('PRODUCTSTATE'),
     'PRODUCTADDINGDATE'=>$this->post('PRODUCTADDINGDATE'),
     'PRODUCTPRICE'=>$this->post('PRODUCTPRICE'),
-   
+
       'message' => 'Added a resource'
   ];
   $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -122,6 +120,42 @@ $add_data=array(
     }
     public function products_put()
     {
+      // Update the orders
+        $PRODUCTSID=$this->put('PRODUCTSID');
+        $update_data=array(
+
+              'PRODUCTSID'=>$this->put('PRODUCTSID'),
+              'PRODUCTSCATEGORYID'=>$this->put('PRODUCTSCATEGORYID'),
+              'PRICECATEGORYID'=>$this->put('PRICECATEGORYID'),
+              'PRODUCNAME'=>$this->put('PRODUCNAME'),
+              'PRODUCTQUANTITY'=>$this->put('PRODUCTQUANTITY'),
+              'PRODUCTDESC'=>$this->put('PRODUCTDESC'),
+              'PRODUCTPICTURE'=>$this->put('PRODUCTPICTURE'),
+              'PRODUTMAXCAPASITY'=>$this->put('PRODUTMAXCAPASITY'),
+              'PRODUCTORDERPOINT'=>$this->put('PRODUCTORDERPOINT'),
+              'PRODUCTSTATE'=>$this->put('PRODUCTSTATE'),
+              'PRODUCTADDINGDATE'=>$this->put('PRODUCTADDINGDATE'),
+              'PRODUCTPRICE'=>$this->put('PRODUCTPRICE')
+            );
+
+        $this->Products_mdl->update_products($PRODUCTSID, $update_data);
+        $message = [
+          'PRODUCTSID'=>$this->put('PRODUCTSID'),
+          'PRODUCTSCATEGORYID'=>$this->put('PRODUCTSCATEGORYID'),
+          'PRICECATEGORYID'=>$this->put('PRICECATEGORYID'),
+          'PRODUCNAME'=>$this->put('PRODUCNAME'),
+          'PRODUCTQUANTITY'=>$this->put('PRODUCTQUANTITY'),
+          'PRODUCTDESC'=>$this->put('PRODUCTDESC'),
+          'PRODUCTPICTURE'=>$this->put('PRODUCTPICTURE'),
+          'PRODUTMAXCAPASITY'=>$this->put('PRODUTMAXCAPASITY'),
+          'PRODUCTORDERPOINT'=>$this->put('PRODUCTORDERPOINT'),
+          'PRODUCTSTATE'=>$this->put('PRODUCTSTATE'),
+          'PRODUCTADDINGDATE'=>$this->put('PRODUCTADDINGDATE'),
+          'PRODUCTPRICE'=>$this->put('PRODUCTPRICE'),
+            'message' => 'Updates a resource'
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+
     }
     public function products_delete()
     {
