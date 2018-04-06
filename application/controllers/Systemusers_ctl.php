@@ -142,7 +142,28 @@ class Systemusers_ctl extends REST_Controller
     
     }
     public function systemusers_delete()
-    {
+    {$SYSTEMUSERSID = (int) $this->get('SYSTEMUSERSID');
+        // Validate the SYSTEMUSERSID.
+        if ($SYSTEMUSERSID <= 0)
+        {
+            // Set the response and exit
+            $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+        }
+        // $this->some_model->delete_something($id);
+        //check if the systemusers exists
+        $test=$this->Systemusers_mdl->get_systemusers($SYSTEMUSERSID);
+        if(!empty($test[0]['SYSTEMUSERSID'])) {
+          $this->Systemusers_mdl->delete_systemusers($SYSTEMUSERSID);
+          $message = [
+              'SYSTEMUSERSID' => $SYSTEMUSERSID,
+              'message' => 'Deleted the resource'
+          ];
+          $this->set_response($message, REST_Controller::HTTP_OK);
+        }
+        else {
+          $message="Error";
+          $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+        }
     }
 
 }
