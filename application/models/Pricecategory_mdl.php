@@ -16,5 +16,9 @@ class Pricecategory_mdl extends CI_model
         $this->db->where('PRICECATEGORYID',$PRICECATEGORYID);
         $this->db->update('pricecategory',$update_data);
       }
+      function delete_pricecategory($PRICECATEGORYID){
+        $this->db->where('PRICECATEGORYID',$PRICECATEGORYID);
+        $this->db->delete('pricecategory');
+      }
         
 }

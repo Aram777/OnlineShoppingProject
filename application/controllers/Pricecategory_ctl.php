@@ -71,7 +71,30 @@ class Pricecategory_ctl extends REST_Controller
 
     public function pricecategory_delete()
     {
-    }
+        $PRICECATEGORYID = (int) $this->get('PRICECATEGORYID');
+        // Validate the id.
+        if ($PRICECATEGORYID <= 0)
+        {
+            // Set the response and exit
+            $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+        }
+        // $this->some_model->delete_something($PRICECATEGORYID);
+        //check if the price exists
+        $test=$this->Pricecategory_mdl->get_pricecategory($PRICECATEGORYID);
+        if(!empty($test[0]['pricecategory'])) {
+          $this->Pricecategory_mdl->delete_pricecategory($PRICECATEGORYID);
+          $message = [
+              'PRICECATEGORYID' => $PRICECATEGORYID,
+              'message' => 'Deleted the resource'
+          ];
+          $this->set_response($message, REST_Controller::HTTP_OK);
+        }
+        else {
+          $message="Error";
+          $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+        }
+        }
+    
 
 
 }
