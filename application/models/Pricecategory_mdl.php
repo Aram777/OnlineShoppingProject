@@ -9,5 +9,8 @@ class Pricecategory_mdl extends CI_model
         $this->db->from('pricecategory');
         return $this->db->get()->result_array();
       }
+      function add_Pricecategory($add_data){
+        $this->db->insert('pricecategory',$add_data); 
+     }
         
 }
