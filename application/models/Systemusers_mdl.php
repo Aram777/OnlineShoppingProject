@@ -7,7 +7,7 @@ class Systemusers_mdl extends CI_model
     public function get_systemusers()
     {
         $this->db->select('*');
-        $this->db->from('systemusers');
+        $this->db->from('systemusersview');
         return $this->db->get()->result_array();
     }
     public function get_systemuser($SYSTEMUSERSID)
