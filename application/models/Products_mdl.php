@@ -25,4 +25,8 @@ $this->db->insert('products',$add_data);
        $this->db->where('PRODUCTSID',$PRODUCTSID);
        $this->db->update('products',$update_data);
 }
+function delete_products($PRODUCTSID){
+       $this->db->where('PRODUCTSID',$PRODUCTSID);
+       $this->db->delete('products');
+}
 }
