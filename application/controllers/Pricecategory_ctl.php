@@ -94,7 +94,7 @@ class Pricecategory_ctl extends REST_Controller
           $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
         }
         }
-    
+
 
 
 }
