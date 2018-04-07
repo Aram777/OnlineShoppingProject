@@ -23,7 +23,13 @@ class Productscategory_ctl extends REST_Controller
     {
       $productscategory=$this->Productscategory_mdl->get_productscategory();
 
+      $PRODUCTSCATEGORYID = $this->get('PRODUCTSCATEGORYID');
 
+      // If the id parameter doesn't exist return all the users
+
+      if ($PRODUCTSCATEGORYID === NULL)
+      {
+          // Check if the users data store contains users (in case the database result returns NULL)
           if ($productscategory)
           {
               // Set the response and exit
@@ -38,6 +44,42 @@ class Productscategory_ctl extends REST_Controller
               ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
           }
       }
+
+      // Find and return a single record for a particular user.
+
+      $PRODUCTSCATEGORYID = (int) $PRODUCTSCATEGORYID;
+
+      // Validate the id.
+      if ($PRODUCTSCATEGORYID <= 0)
+      {
+          // Invalid id, set the response and exit.
+          $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+      }
+
+      // Get the user from the array, using the id as key for retrieval.
+      // Usually a model is to be used for this.
+
+      $productcategory = NULL;
+
+      if (!empty($productscategory))
+      {
+          //Get the user from database
+          $productcategory=$this->Productscategory_mdl->get_productcategory($PRODUCTSCATEGORYID);
+      }
+
+      if (!empty($productcategory))
+      {
+          $this->set_response($productcategory, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+      }
+      else
+      {
+          $this->set_response([
+              'status' => FALSE,
+              'message' => 'product category could not be found'
+          ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+      }
+
+  }
 
 
     public function productscategory_post()
