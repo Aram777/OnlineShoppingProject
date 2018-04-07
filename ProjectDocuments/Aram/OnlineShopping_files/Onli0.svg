@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="207mm" xmlns="http://www.w3.org/2000/svg" height="128mm" version="1.1" viewBox="0 0 785 485" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <polyline fill="none" points="219,46 398,46 398,42 578,42" stroke="#00aaaa" stroke-width="1"/>
+   <polygon fill="#00aaaa" points="578,42 565,45 565,39" stroke="#00aaaa" stroke-width="1" stroke-linejoin="miter"/>
+   <polyline fill="none" points="219,128 405,128 405,216 592,216" stroke="#00aaaa" stroke-width="1"/>
+   <polygon fill="#00aaaa" points="592,216 579,219 579,213" stroke="#00aaaa" stroke-width="1" stroke-linejoin="miter"/>
+   <polyline fill="none" points="409,309 30,309 30,218" stroke="#00aaaa" stroke-width="1"/>
+   <polygon fill="#00aaaa" points="30,218 33,231 27,231" stroke="#00aaaa" stroke-width="1" stroke-linejoin="miter"/>
+   <polyline fill="none" points="409,348 313,348 313,414 243,414" stroke="#00aaaa" stroke-width="1"/>
+   <polygon fill="#00aaaa" points="243,414 256,411 256,417" stroke="#00aaaa" stroke-width="1" stroke-linejoin="miter"/>
+   <a target="_parent" xlink:href="Onli13.htm#1">
+      <rect x="69" y="358" fill="#ffffff" width="0" height="0" stroke="none" stroke-width="0"/>
+      <defs>
+         <linearGradient id="Gradient1" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+            <stop offset="5%" stop-color="#ffffff"/>
+            <stop offset="95%" stop-color="#b0ffff"/>
+         </linearGradient>
+      </defs>
+      <rect x="69" y="358" fill="url(#Gradient1)" width="174" height="112" stroke="#00aaaa" stroke-width="1"/>
+      <text x="156" y="369" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="middle">SystemUsers</text>
+      <line x1="69" x2="243" y1="375" y2="375" stroke="#00aaaa" stroke-width="1"/>
+      <text x="74" y="385" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">SystemUsersId</text>
+      <text x="74" y="398" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">UserFirstName</text>
+      <text x="74" y="411" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">UserLastName</text>
+      <text x="74" y="424" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">UserEmail</text>
+      <text x="74" y="437" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">UserType</text>
+      <text x="74" y="450" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">UserState</text>
+      <text x="74" y="463" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">UserAddress</text>
+      <text x="149" y="385" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">int</text>
+      <text x="149" y="398" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(50)</text>
+      <text x="149" y="411" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(50)</text>
+      <text x="149" y="424" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(100)</text>
+      <text x="149" y="437" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">smallint</text>
+      <text x="149" y="450" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">smallint</text>
+      <text x="149" y="463" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(100)</text>
+      <text x="215" y="385" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">&lt;pk&gt;</text>
+   </a>
+   <a target="_parent" xlink:href="Onli11.htm#1">
+      <rect x="15" y="41" fill="#ffffff" width="0" height="0" stroke="none" stroke-width="0"/>
+      <defs>
+         <linearGradient id="Gradient2" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+            <stop offset="5%" stop-color="#ffffff"/>
+            <stop offset="95%" stop-color="#b0ffff"/>
+         </linearGradient>
+      </defs>
+      <rect x="15" y="41" fill="url(#Gradient2)" width="204" height="177" stroke="#00aaaa" stroke-width="1"/>
+      <text x="117" y="52" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="middle">Products</text>
+      <line x1="15" x2="219" y1="58" y2="58" stroke="#00aaaa" stroke-width="1"/>
+      <text x="20" y="68" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">ProductsId</text>
+      <text x="20" y="81" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductsCategoryId</text>
+      <text x="20" y="94" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">PriceCategoryId</text>
+      <text x="20" y="107" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProducName</text>
+      <text x="20" y="120" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductQuantity</text>
+      <text x="20" y="133" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductDesc</text>
+      <text x="20" y="146" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductPicture</text>
+      <text x="20" y="159" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProdutMaxCapasity</text>
+      <text x="20" y="172" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductOrderPoint</text>
+      <text x="20" y="185" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductState</text>
+      <text x="20" y="198" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductAddingDate</text>
+      <text x="20" y="211" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductPrice</text>
+      <text x="120" y="68" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">int</text>
+      <text x="120" y="81" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="120" y="94" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="120" y="107" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(200)</text>
+      <text x="120" y="120" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="120" y="133" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(200)</text>
+      <text x="120" y="146" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">varchar(200)</text>
+      <text x="120" y="159" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="120" y="172" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="120" y="185" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">smallint</text>
+      <text x="120" y="198" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">datetime</text>
+      <text x="120" y="211" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">decimal(5,2)</text>
+      <text x="187" y="68" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">&lt;pk&gt;</text>
+      <text x="187" y="81" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">&lt;fk2&gt;</text>
+      <text x="187" y="94" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">&lt;fk1&gt;</text>
+   </a>
+   <a target="_parent" xlink:href="Onli10.htm#1">
+      <rect x="578" y="15" fill="#ffffff" width="0" height="0" stroke="none" stroke-width="0"/>
+      <defs>
+         <linearGradient id="Gradient3" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+            <stop offset="5%" stop-color="#ffffff"/>
+            <stop offset="95%" stop-color="#b0ffff"/>
+         </linearGradient>
+      </defs>
+      <rect x="578" y="15" fill="url(#Gradient3)" width="190" height="53" stroke="#00aaaa" stroke-width="1"/>
+      <text x="673" y="26" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="middle">PriceCategory</text>
+      <line x1="578" x2="768" y1="32" y2="32" stroke="#00aaaa" stroke-width="1"/>
+      <text x="583" y="42" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">PriceCategoryId</text>
+      <text x="583" y="55" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">PriceCatPerecent</text>
+      <text x="673" y="42" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">int</text>
+      <text x="673" y="55" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">decimal(5,2)</text>
+      <text x="740" y="42" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">&lt;pk&gt;</text>
+   </a>
+   <a target="_parent" xlink:href="Onli12.htm#1">
+      <rect x="592" y="189" fill="#ffffff" width="0" height="0" stroke="none" stroke-width="0"/>
+      <defs>
+         <linearGradient id="Gradient4" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+            <stop offset="5%" stop-color="#ffffff"/>
+            <stop offset="95%" stop-color="#b0ffff"/>
+         </linearGradient>
+      </defs>
+      <rect x="592" y="189" fill="url(#Gradient4)" width="178" height="53" stroke="#00aaaa" stroke-width="1"/>
+      <text x="681" y="200" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="middle">ProductsCategory</text>
+      <line x1="592" x2="770" y1="206" y2="206" stroke="#00aaaa" stroke-width="1"/>
+      <text x="597" y="216" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">ProductsCategoryId</text>
+      <text x="597" y="229" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">PrdCatDescription</text>
+      <text x="696" y="216" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">int</text>
+      <text x="696" y="229" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">longtext</text>
+      <text x="742" y="216" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">&lt;pk&gt;</text>
+   </a>
+   <a target="_parent" xlink:href="Onli9.htm#1">
+      <rect x="409" y="292" fill="#ffffff" width="0" height="0" stroke="none" stroke-width="0"/>
+      <defs>
+         <linearGradient id="Gradient5" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+            <stop offset="5%" stop-color="#ffffff"/>
+            <stop offset="95%" stop-color="#b0ffff"/>
+         </linearGradient>
+      </defs>
+      <rect x="409" y="292" fill="url(#Gradient5)" width="160" height="112" stroke="#00aaaa" stroke-width="1"/>
+      <text x="489" y="303" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="middle">Orders</text>
+      <line x1="409" x2="569" y1="309" y2="309" stroke="#00aaaa" stroke-width="1"/>
+      <text x="414" y="319" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">OrdersId</text>
+      <text x="414" y="332" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">SystemUsersId</text>
+      <text x="414" y="345" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductsId</text>
+      <text x="414" y="358" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">OrderDate</text>
+      <text x="414" y="371" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">OrderStat</text>
+      <text x="414" y="384" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">ProductRate</text>
+      <text x="414" y="397" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">OrderQuantity</text>
+      <text x="489" y="319" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">int</text>
+      <text x="489" y="332" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="489" y="345" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="489" y="358" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">datetime</text>
+      <text x="489" y="371" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">smallint</text>
+      <text x="489" y="384" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="489" y="397" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">int</text>
+      <text x="539" y="319" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start" text-decoration="underline">&lt;pk&gt;</text>
+      <text x="539" y="332" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">&lt;fk2&gt;</text>
+      <text x="539" y="345" fill="#000000" font-size="10" font-family="'Arial Unicode MS','Arial'" text-anchor="start">&lt;fk1&gt;</text>
+   </a>
+</svg>
