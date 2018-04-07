@@ -9,59 +9,60 @@
 
     <title>Checkout page</title>
 
-    <!-- Bootstrap core CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Noto+Serif" rel="stylesheet">
   </head>
 
   <body background="yellow.jpg">
 
     <div class="container rounded py-5 transparent-container">
       <div class="pb-5 text-center">
-        <h2>Checkout form</h2>
-        <p class="lead">Only a few steps before your order is placed!</p>
+        <h2 class="myh2">Checkout form</h2>
+        <p class="myp">Only few steps before your order is placed!</p>
       </div>
 
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
+          <h4 class="d-flex justify-content-between align-items-center mb-3 ">
+            <span class="myh4">Your cart:</span>
+            <span class="badge badge-warning badge-pill">3</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0 mytext">Product name</h6>
+                <small class="text-muted mytext">Brief description</small>
               </div>
-              <span class="text-muted">$12</span>
+              <span class="text-muted mytext">$12</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0 mytext">Second product</h6>
+                <small class="text-muted mytext">Brief description</small>
               </div>
-              <span class="text-muted">$8</span>
+              <span class="text-muted mytext">$8</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
+                <h6 class="my-0 mytext">Third item</h6>
+                <small class="text-muted mytext">Brief description</small>
               </div>
-              <span class="text-muted">$5</span>
+              <span class="text-muted mytext">$5</span>
             </li>
             <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
+              <div class="text-success mytext">
+                <h6 class="my-0 mytext">Promo code</h6>
+                <small class="mytext">EXAMPLECODE</small>
               </div>
-              <span class="text-success">-$5</span>
+              <span class="text-success mytext">-$5</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
+            <li class="list-group-item d-flex justify-content-between mytext">
               <span>Total (USD)</span>
               <strong>$20</strong>
             </li>
@@ -69,68 +70,68 @@
 
           <form class="card p-2">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
+              <input type="text" class="form-control mytext" placeholder="Promo code">
               <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
+                <button type="submit" class="btn btn-warning mytext">Redeem</button>
               </div>
             </div>
           </form>
         </div>
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Billing address</h4>
+          <h4 class="mb-3 myh4">Billing address:</h4>
           <form class="needs-validation" novalidate>
             <div class="row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 mytext">
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
+                <div class="invalid-feedback mytext">
                   Valid first name is required.
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6 mb-3 mytext">
                 <label for="lastName">Last name</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
+                <div class="invalid-feedback mytext">
                   Valid last name is required.
                 </div>
               </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 mytext">
               <label for="username">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
+              <div class="input-group mytext">
+                <div class="input-group-prepend mytext">
                   <span class="input-group-text">@</span>
                 </div>
                 <input type="text" class="form-control" id="username" placeholder="Username" required>
-                <div class="invalid-feedback" style="width: 100%;">
+                <div class="invalid-feedback mytext" style="width: 100%;">
                   Your username is required.
                 </div>
               </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 mytext">
               <label for="email">Email <span class="text-muted">(Optional)</span></label>
               <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
+              <div class="invalid-feedback mytext">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 mytext">
               <label for="address">Address</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback mytext">
                 Please enter your shipping address.
               </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 mytext">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
               <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
             </div>
 
-            <div class="row">
+            <div class="row mytext">
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
                 <select class="custom-select d-block w-100" id="country" required>
@@ -160,19 +161,19 @@
               </div>
             </div>
             <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
+            <div class="custom-control custom-checkbox mytext">
               <input type="checkbox" class="custom-control-input" id="same-address">
               <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
             </div>
-            <div class="custom-control custom-checkbox">
+            <div class="custom-control custom-checkbox mytext">
               <input type="checkbox" class="custom-control-input" id="save-info">
               <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
             <hr class="mb-4">
 
-            <h4 class="mb-3">Payment</h4>
+            <h4 class="mb-3 mytext">Payment</h4>
 
-            <div class="d-block my-3">
+            <div class="d-block my-3 mytext">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                 <label class="custom-control-label" for="credit">Credit card</label>
@@ -186,7 +187,7 @@
                 <label class="custom-control-label" for="paypal">Paypal</label>
               </div>
             </div>
-            <div class="row">
+            <div class="row mytext">
               <div class="col-md-6 mb-3">
                 <label for="cc-name">Name on card</label>
                 <input type="text" class="form-control" id="cc-name" placeholder="" required>
@@ -203,7 +204,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row mytext">
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">Expiration</label>
                 <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
@@ -219,8 +220,9 @@
                 </div>
               </div>
             </div>
-            <hr class="mb-4">
+            <hr class="mb-4 mytext">
             <button class="btn btn-warning btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-outline-warning btn-lg btn-block" type="button" >Back to shopping</button>
           </form>
         </div>
       </div>
