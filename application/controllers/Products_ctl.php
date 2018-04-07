@@ -24,11 +24,11 @@ class Products_ctl extends REST_Controller
 
         $products=$this->Products_mdl->get_products();
 
-        $id = $this->get('id');
+        $PRODUCTSID = $this->get('PRODUCTSID');
 
         // If the id parameter doesn't exist return all the users
 
-        if ($id === NULL)
+        if ($PRODUCTSID === NULL)
         {
             // Check if the users data store contains users (in case the database result returns NULL)
             if ($products)
@@ -48,10 +48,10 @@ class Products_ctl extends REST_Controller
 
         // Find and return a single record for a particular user.
 
-        $id = (int) $id;
+        $PRODUCTSID = (int) $PRODUCTSID;
 
         // Validate the id.
-        if ($id <= 0)
+        if ($PRODUCTSID <= 0)
         {
             // Invalid id, set the response and exit.
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
@@ -65,7 +65,7 @@ class Products_ctl extends REST_Controller
         if (!empty($products))
         {
             //Get the user from database
-            $product=$this->Products_mdl->get_product($id);
+            $product=$this->Products_mdl->get_product($PRODUCTSID);
         }
 
         if (!empty($product))
@@ -76,7 +76,7 @@ class Products_ctl extends REST_Controller
         {
             $this->set_response([
                 'status' => FALSE,
-                'message' => 'User could not be found'
+                'message' => 'product could not be found'
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
 
