@@ -22,7 +22,7 @@ class Orders_ctl extends REST_Controller
     public function orders_get()
     {
         // Users from a data store e.g. database
-        $orders=$this->Order_mdl->get_users();
+        $orders=$this->Orders_mdl->get_orders();
         $ORDERSID = $this->get('ORDERSID');
         // If the id parameter doesn't exist return all the users
         if ($ORDERSID === NULL)
@@ -38,7 +38,7 @@ class Orders_ctl extends REST_Controller
                 // Set the response and exit
                 $this->response([
                     'status' => FALSE,
-                    'message' => 'No users were found'
+                    'message' => 'No orders were found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
@@ -56,7 +56,7 @@ class Orders_ctl extends REST_Controller
         if (!empty($orders))
         {
             //Get the user from database
-            $order=$this->Order_mdl->get_user($ORDERSID);
+            $order=$this->Order_mdl->get_order($ORDERSID);
         }
         if (!empty($order))
         {

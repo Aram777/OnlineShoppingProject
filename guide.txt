@@ -1,0 +1,26 @@
+Fonts:
+1)<link href="https://fonts.googleapis.com/css?family=Pacifico|Noto+Serif" rel="stylesheet">
+2) Css classes for text, myh2(for h2 elements), myp(for p elements), myh4 (for h3 elements), mytext (for any elements that require font change)
+.myh2 {
+  font-family: 'Noto Serif', serif;
+  text-shadow: 2px 3px 0 #cc9900;
+  color: rgb(255, 255, 255);
+  font-size: 35px;
+}
+.myp{
+  font-family: 'Pacifico', cursive;
+  color: rgb(204, 153, 0);
+  font-size: 25px;
+  text-shadow: 0.5px 0.5px 0 #ffffff;
+}
+.myh4{
+  font-family: 'Pacifico', cursive;
+  color: rgb(204, 153, 0);
+  font-size: 25px;
+  text-shadow: 0.5px 1px 0 #ffffff;
+}
+.mytext{
+  font-family: 'Noto Serif', serif;
+}
+3) button class for color: <button class="btn btn-warning">
+4) background image to be discussed
