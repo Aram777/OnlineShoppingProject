@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="jsFunction/orders.js"></script>
+    <title>Rest Client</title>
+</head>
+
+<body>
+    <h1>Orders Data</h1>
+    <h2>Orders</h2>
+    <button onclick="Getorders()">Get All Orders(HTML)</button>
+    <button onclick="Getorders('json')">Get All Orders(JSON)</button>
+    <button onclick="NamesEmails()">Show name and email</button>
+    <label for="">Write a name:</label>
+    <input type="text" id="s_name" />
+    <h2>Add Order</h2>
+    <form id='OrderForm'>
+                    <label for="">SYSTEMUSERSID</label>
+                    <br>
+                    <input type="number" name="SYSTEMUSERSID">
+                    <br>
+                    <label for="">PRODUCTSID</label>
+                    <br>
+                    <input type="number" name="PRODUCTSID" id="">
+                    <br>
+
+                    <label for="">ORDERSDATE</label>
+                    <br>
+                    <input type="text" name="ORDERSDATE" value="2018/04/06">
+                    <br>
+
+                    <label for="">ORDERSTATUS</label>
+                    <br>
+                    <input type="number" name="ORDERSTATUS" id="">
+                    <br>
+
+                    <label for="">PRODUCTSRATE</label>
+                    <br>
+                    <input type="number" name="PRODUCTSRATE" id="">
+                    <br>
+                    <label for="">ORDERQUANTITY</label>
+                    <br>
+                    <input type="number" name="ORDERQUANTITY" id="">
+                    <br>
+                    <label for="">ORDERPRICE</label>
+                    <br>
+                    <input type="number" name="ORDERPRICE" id="">
+                    <br>
+                </form>
+                <button onclick="Addorder()">Add Order</button>
+
+                <h2>Update Order</h2>
+                <label for="">PRODUCTSID</label>
+                <br>
+                <input type="text" PRODUCTSID='update_PRODUCTSID'>
+                <br>
+                <label for="">ORDERSDATE</label>
+                <br>
+                <input type="text" id='update_ORDERSDATE'>
+                <br>
+                <label for="">ORDERSTATUS</label>
+                <br>
+                <input type="text" id='update_ORDERSTATUS'>
+                <br>
+                <label for="">PRODUCTSRATE</label>
+                <br>
+                <input type="text" id='update_PRODUCTSRATE'>
+                <br>
+                <label for="">ORDERQUANTITY</label>
+                <br>
+                <input type="text" id='update_ORDERQUANTITY'>
+                <br>
+                
+
+                <button onclick="UpdateUser()">Update User</button>
+
+                <h2>Delete User</h2>
+                <label for="">Write the id</label>
+                <input type="number" id='delete_id'>
+                <button onclick="DeleteUser()">Delete User</button>
+                <div id='ResualtData'></div> <br>
+                <div id='aramtest'></div> <br>
+                <div id='aramtest1'></div> <br>
+</body>
+
+</html>
