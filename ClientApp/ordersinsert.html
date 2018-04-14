@@ -28,7 +28,7 @@
 
                     <label for="">ORDERSDATE</label>
                     <br>
-                    <input type="text" name="ORDERSDATE" value="2018/04/06">
+                    <input type="text" name="ORDERDATE" value="2018/04/06">
                     <br>
 
                     <label for="">ORDERSTATUS</label>
@@ -52,6 +52,10 @@
                 <button onclick="Addorder()">Add Order</button>
 
                 <h2>Update Order</h2>
+                <label for="">SYSTEMUSERSID</label>
+                <br>
+                <input type="text" SYSTEMUSERSID='update_SYSTEMUSERSID'>
+                <br>
                 <label for="">PRODUCTSID</label>
                 <br>
                 <input type="text" PRODUCTSID='update_PRODUCTSID'>
@@ -64,25 +68,27 @@
                 <br>
                 <input type="text" id='update_ORDERSTATUS'>
                 <br>
-                <label for="">PRODUCTSRATE</label>
+                <label for="">PRODUCTRATE</label>
                 <br>
-                <input type="text" id='update_PRODUCTSRATE'>
+                <input type="text" id='update_PRODUCTRATE'>
                 <br>
                 <label for="">ORDERQUANTITY</label>
                 <br>
                 <input type="text" id='update_ORDERQUANTITY'>
                 <br>
+                <label for="">ORDERPRICE</label>
+                <br>
+                <input type="text" id='update_ORDERPRICE'>
+                <br>
                 
 
-                <button onclick="UpdateUser()">Update User</button>
+                <button onclick="UpdateOrder()">Update Order</button>
 
                 <h2>Delete User</h2>
                 <label for="">Write the id</label>
                 <input type="number" id='delete_id'>
                 <button onclick="DeleteUser()">Delete User</button>
-                <div id='ResualtData'></div> <br>
-                <div id='aramtest'></div> <br>
-                <div id='aramtest1'></div> <br>
+                <div id='ResualtData'></div> 
 </body>
 
 </html>
