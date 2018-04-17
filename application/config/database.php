@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '13488431',
-	'database' => 'OnlineShoppingToy',
+	'hostname' => 'group6onlineshopping.mysql.database.azure.com',
+	'username' => 'admingroup6@group6onlineshopping',
+	'password' => '1Group6Admin',
+	'database' => 'onlineshoppingtoy',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
