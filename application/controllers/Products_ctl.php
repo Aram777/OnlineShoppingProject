@@ -77,31 +77,31 @@ class Products_ctl extends REST_Controller
 
         $add_data = array(
 
-            'PRODUCTSCATEGORYID' => $this->post('PRODUCTSCATEGORYID'),
-            'PRICECATEGORYID' => $this->post('PRICECATEGORYID'),
-            'PRODUCNAME' => $this->post('PRODUCNAME'),
-            'PRODUCTQUANTITY' => $this->post('PRODUCTQUANTITY'),
-            'PRODUCTDESC' => $this->post('PRODUCTDESC'),
-            'PRODUCTPICTURE' => $this->post('PRODUCTPICTURE'),
-            'PRODUTMAXCAPASITY' => $this->post('PRODUTMAXCAPASITY'),
-            'PRODUCTORDERPOINT' => $this->post('PRODUCTORDERPOINT'),
-            'PRODUCTSTATE' => $this->post('PRODUCTSTATE'),
-            'PRODUCTADDINGDATE' => $this->post('PRODUCTADDINGDATE'),
-            'PRODUCTPRICE' => $this->post('PRODUCTPRICE'),
+            'ProductsCategoryId' => $this->post('ProductsCategoryId'),
+            'PriceCategoryId' => $this->post('PriceCategoryId'),
+            'ProductName' => $this->post('ProductName'),
+            'ProductQuantity' => $this->post('ProductQuantity'),
+            'ProductDesc' => $this->post('ProductDesc'),
+            'ProductPicture' => $this->post('ProductPicture'),
+            'ProdutMaxCapasity' => $this->post('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->post('ProductOrderPoint'),
+            'ProductState' => $this->post('ProductState'),
+            'ProductAddingDate' => $this->post('ProductAddingDate'),
+            'ProductPrice' => $this->post('ProductPrice'),
         );
         $this->Products_mdl->add_products($add_data);
         $message = [
-            'PRODUCTSCATEGORYID' => $this->post('PRODUCTSCATEGORYID'),
-            'PRICECATEGORYID' => $this->post('PRICECATEGORYID'),
-            'PRODUCNAME' => $this->post('PRODUCNAME'),
-            'PRODUCTQUANTITY' => $this->post('PRODUCTQUANTITY'),
-            'PRODUCTDESC' => $this->post('PRODUCTDESC'),
-            'PRODUCTPICTURE' => $this->post('PRODUCTPICTURE'),
-            'PRODUTMAXCAPASITY' => $this->post('PRODUTMAXCAPASITY'),
-            'PRODUCTORDERPOINT' => $this->post('PRODUCTORDERPOINT'),
-            'PRODUCTSTATE' => $this->post('PRODUCTSTATE'),
-            'PRODUCTADDINGDATE' => $this->post('PRODUCTADDINGDATE'),
-            'PRODUCTPRICE' => $this->post('PRODUCTPRICE'),
+            'ProductsCategoryId' => $this->post('ProductsCategoryId'),
+            'PriceCategoryId' => $this->post('PriceCategoryId'),
+            'ProductName' => $this->post('ProductName'),
+            'ProductQuantity' => $this->post('ProductQuantity'),
+            'ProductDesc' => $this->post('ProductDesc'),
+            'ProductPicture' => $this->post('ProductPicture'),
+            'ProdutMaxCapasity' => $this->post('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->post('ProductOrderPoint'),
+            'ProductState' => $this->post('ProductState'),
+            'ProductAddingDate' => $this->post('ProductAddingDate'),
+            'ProductPrice' => $this->post('ProductPrice'),
 
             'message' => 'Added a resource',
         ];
@@ -111,37 +111,37 @@ class Products_ctl extends REST_Controller
     public function products_put()
     {
         // Update the orders
-        $PRODUCTSID = $this->put('PRODUCTSID');
+        $ProductsId = $this->put('ProductsId');
         $update_data = array(
 
-            'PRODUCTSID' => $this->put('PRODUCTSID'),
-            'PRODUCTSCATEGORYID' => $this->put('PRODUCTSCATEGORYID'),
-            'PRICECATEGORYID' => $this->put('PRICECATEGORYID'),
-            'PRODUCNAME' => $this->put('PRODUCNAME'),
-            'PRODUCTQUANTITY' => $this->put('PRODUCTQUANTITY'),
-            'PRODUCTDESC' => $this->put('PRODUCTDESC'),
-            'PRODUCTPICTURE' => $this->put('PRODUCTPICTURE'),
-            'PRODUTMAXCAPASITY' => $this->put('PRODUTMAXCAPASITY'),
-            'PRODUCTORDERPOINT' => $this->put('PRODUCTORDERPOINT'),
-            'PRODUCTSTATE' => $this->put('PRODUCTSTATE'),
-            'PRODUCTADDINGDATE' => $this->put('PRODUCTADDINGDATE'),
-            'PRODUCTPRICE' => $this->put('PRODUCTPRICE'),
+            'ProductsId' => $this->put('ProductsId'),
+            'ProductsCategoryId' => $this->put('ProductsCategoryId'),
+            'PriceCategoryId' => $this->put('PriceCategoryId'),
+            'ProductName' => $this->put('ProductName'),
+            'ProductQuantity' => $this->put('ProductQuantity'),
+            'ProductDesc' => $this->put('ProductDesc'),
+            'ProductPicture' => $this->put('ProductPicture'),
+            'ProdutMaxCapasity' => $this->put('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->put('ProductOrderPoint'),
+            'ProductState' => $this->put('ProductState'),
+            'ProductAddingDate' => $this->put('ProductAddingDate'),
+            'ProductPrice' => $this->put('ProductPrice'),
         );
 
         $this->Products_mdl->update_products($PRODUCTSID, $update_data);
         $message = [
-            'PRODUCTSID' => $this->put('PRODUCTSID'),
-            'PRODUCTSCATEGORYID' => $this->put('PRODUCTSCATEGORYID'),
-            'PRICECATEGORYID' => $this->put('PRICECATEGORYID'),
-            'PRODUCNAME' => $this->put('PRODUCNAME'),
-            'PRODUCTQUANTITY' => $this->put('PRODUCTQUANTITY'),
-            'PRODUCTDESC' => $this->put('PRODUCTDESC'),
-            'PRODUCTPICTURE' => $this->put('PRODUCTPICTURE'),
-            'PRODUTMAXCAPASITY' => $this->put('PRODUTMAXCAPASITY'),
-            'PRODUCTORDERPOINT' => $this->put('PRODUCTORDERPOINT'),
-            'PRODUCTSTATE' => $this->put('PRODUCTSTATE'),
-            'PRODUCTADDINGDATE' => $this->put('PRODUCTADDINGDATE'),
-            'PRODUCTPRICE' => $this->put('PRODUCTPRICE'),
+            'ProductsId' => $this->put('ProductsId'),
+            'ProductsCategoryId' => $this->put('ProductsCategoryId'),
+            'PriceCategoryId' => $this->put('PriceCategoryId'),
+            'ProductName' => $this->put('ProductName'),
+            'ProductQuantity' => $this->put('ProductQuantity'),
+            'ProductDesc' => $this->put('ProductDesc'),
+            'ProductPicture' => $this->put('ProductPicture'),
+            'ProdutMaxCapasity' => $this->put('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->put('ProductOrderPoint'),
+            'ProductState' => $this->put('ProductState'),
+            'ProductAddingDate' => $this->put('ProductAddingDate'),
+            'ProductPrice' => $this->put('ProductPrice'),
             'message' => 'Updates a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -150,19 +150,19 @@ class Products_ctl extends REST_Controller
 
     public function products_delete()
     {
-        $PRODUCTSID = (int) $this->get('PRODUCTSID');
+        $ProductsId = (int) $this->get('ProductsId');
         // Validate the ORDERSID.
-        if ($PRODUCTSID <= 0) {
+        if ($ProductsId <= 0) {
             // Set the response and exit
             $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
         // $this->some_model->delete_something($id);
         //check if the orders exists
-        $test = $this->Products_mdl->get_products($PRODUCTSID);
-        if (!empty($test[0]['PRODUCTSID'])) {
-            $this->Products_mdl->delete_products($PRODUCTSID);
+        $test = $this->Products_mdl->get_products($ProductsId);
+        if (!empty($test[0]['ProductsId'])) {
+            $this->Products_mdl->delete_products($ProductsId);
             $message = [
-                'PRODUCTSID' => $PRODUCTSID,
+                'ProductsId' => $ProductsId,
                 'message' => 'Deleted the resource',
             ];
             $this->set_response($message, REST_Controller::HTTP_OK);
