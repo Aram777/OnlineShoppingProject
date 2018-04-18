@@ -128,7 +128,7 @@ class Products_ctl extends REST_Controller
             'ProductPrice' => $this->put('ProductPrice'),
         );
 
-        $this->Products_mdl->update_products($PRODUCTSID, $update_data);
+        $this->Products_mdl->update_products($ProductsId, $update_data);
         $message = [
             'ProductsId' => $this->put('ProductsId'),
             'ProductsCategoryId' => $this->put('ProductsCategoryId'),
