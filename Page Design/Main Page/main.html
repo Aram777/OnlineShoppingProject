@@ -13,22 +13,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="main.css" rel="stylesheet">
+    <link href="floating-labels.css" rel="stylesheet">
   </head>
   <body>
     <div class="bgdiv" background="bg.jpg">
-    <div style="background-color: rgb(255, 255, 255, 0.5) !important; padding-bottom: 68px;">
+    <nav class="fixed-top" style="background-color: rgb(255, 255, 255) !important;">
       <img class="float-left" src="logo.png" style="max-width:300px; display: inline;">
-      <nav class="pt-5 navbar navbar-expand-lg navbar-light" style="background-color: rgb(255, 255, 255, 0.5)  !important;">
+      <nav class="pt-5 navbar navbar-fixed-top navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, 0.5)  !important;">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar navbar-collapse navbar-fixed-top" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto myh4">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Toys
@@ -47,10 +44,10 @@
         </div>
         <ul class="navbar-nav ml-auto myh4">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" id="login" href="#">Login</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Register</a>
+            <a href="../Register Page/register.html" class="nav-link" href="#">Register</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">My Cart</a>
@@ -58,14 +55,14 @@
         </ul>
       </div>
     </nav>
-    </div>
-
+  </nav>
+  </div>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
+      <!-- <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+      </ol> -->
       <div class="carousel-inner text-center">
         <div class="carousel-item active">
           <img class="first-slide" src="toys.jpg" alt="First slide">
@@ -93,7 +90,7 @@
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" background-color: black;>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
@@ -103,5 +100,72 @@
       </a>
     </div>
   </div>
-  </body>
+  <p>nkgnng</p>
+  <br>
+  <br>
+  <br>
+  <p>jkejlweljflknlwenlnwlnel</p>
+  <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="transparent-container">
+      <form class="form-signin">
+        <div class="text-center mb-4">
+          <img class="mb-4" src="logo.png" alt="" width="200">
+          <h1 class="h3 mb-3 font-weight-normal myp">Welcome back!</h1>
+        </div>
+
+        <div class="form-label-group myp">
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <br>
+        </div>
+
+        <div class="form-label-group myp">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <br>
+        </div>
+
+        <div class="checkbox myh4">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-warning btn-primary btn-block" type="submit">Sign in</button>
+        <br>
+        <div>
+          <p class="text-info text-center"> <ins> Forgot your password? </ins></p>
+        </div>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("login");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
 </html>
