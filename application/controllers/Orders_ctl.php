@@ -23,9 +23,9 @@ class Orders_ctl extends REST_Controller
     {
         // Users from a data store e.g. database
         $orders=$this->Orders_mdl->get_orders();
-        $ORDERSID = $this->get('ORDERSID');
+        $ORDERSID = $this->get('OrdersId');
         // If the id parameter doesn't exist return all the users
-        if ($ORDERSID === NULL)
+        if ($OrdersId === NULL)
         {
             // Check if the users data store contains users (in case the database result returns NULL)
             if ($orders)
@@ -43,9 +43,9 @@ class Orders_ctl extends REST_Controller
             }
         }
         // Find and return a single record for a particular user.
-        $ORDERSID = (int) $ORDERSID;
+        $OrdersId = (int) $OrdersId;
         // Validate the id.
-        if ($ORDERSID <= 0)
+        if ($OrdersId <= 0)
         {
             // Invalid id, set the response and exit.
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
@@ -56,7 +56,7 @@ class Orders_ctl extends REST_Controller
         if (!empty($orders))
         {
             //Get the user from database
-            $order=$this->Order_mdl->get_order($ORDERSID);
+            $order=$this->Order_mdl->get_order($OrdersId);
         }
         if (!empty($order))
         {
@@ -74,24 +74,26 @@ class Orders_ctl extends REST_Controller
     {
         // Add a new order
         $add_data = array(
-            'SYSTEMUSERSID' => $this->post('SYSTEMUSERSID'),
-            'PRODUCTSID' => $this->post('PRODUCTSID'),
-            'ORDERDATE' => $this->post('ORDERDATE'),
-            'ORDERSTATUS' => $this->post('ORDERSTATUS'),
-            'PRODUCTRATE' => $this->post('PRODUCTRATE'),
-            'ORDERQUANTITY' => $this->post('ORDERQUANTITY'),
-            'ORDERPRICE' => $this->post('ORDERPRICE'),
+            'SystemUsersId' => $this->post('SystemUsersId'),
+            'ProductsId' => $this->post('ProductsId'),
+            'DiscountsId' => $this->post('DiscountsId'),
+            'OrdersDate' => $this->post('OrdersDate'),
+            'OrderStatus' => $this->post('OrderStatus'),
+            'ProductRate' => $this->post('ProductRate'),
+            'OrderQuantity' => $this->post('OrderQuantity'),
+            'OrderPrice' => $this->post('OrderPrice')
         );
         $this->Orders_mdl->add_orders($add_data);
         $message = [
 
-            'SYSTEMUSERSID' => $this->post('SYSTEMUSERSID'),
-            'PRODUCTSID' => $this->post('PRODUCTSID'),
-            'ORDERDATE' => $this->post('ORDERDATE'),
-            'ORDERSTATUS' => $this->post('ORDERSTATUS'),
-            'PRODUCTRATE' => $this->post('PRODUCTRATE'),
-            'ORDERQUANTITY' => $this->post('ORDERQUANTITY'),
-            'ORDERPRICE' => $this->post('ORDERPRICE'),
+            'SystemUsersId' => $this->post('SystemUsersId'),
+            'ProductsId' => $this->post('ProductsId'),
+            'DiscountsId' => $this->post('DiscountsId'),
+            'OrdersDate' => $this->post('OrdersDate'),
+            'OrderStatus' => $this->post('OrderStatus'),
+            'ProductRate' => $this->post('ProductRate'),
+            'OrderQuantity' => $this->post('OrderQuantity'),
+            'OrderPrice' => $this->post('OrderPrice'),
             'message' => 'Added a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -101,26 +103,27 @@ class Orders_ctl extends REST_Controller
     {
         // Update the orders
 
-        $ORDERSID = $this->put('ORDERSID');
+        $ORDERSID = $this->put('OrdersId');
         $update_data = array(
-            'SYSTEMUSERSID' => $this->put('SYSTEMUSERSID'),
-            'PRODUCTSID' => $this->put('PRODUCTSID'),
-            'ORDERDATE' => $this->put('ORDERDATE'),
-            'ORDERSTATUS' => $this->put('ORDERSTATUS'),
-            'PRODUCTRATE' => $this->put('PRODUCTRATE'),
-            'ORDERQUANTITY' => $this->put('ORDERQUANTITY'),
-            'ORDERPRICE' => $this->put('ORDERPRICE'),
+            'SystemUsersId' => $this->put('SystemUsersId'),
+            'ProductsId' => $this->put('ProductsId'),
+            'DiscountsId' => $this->put('DiscountsId'),
+            'OrdersDate' => $this->put('OrdersDate'),
+            'OrderStatus' => $this->put('OrderStatus'),
+            'ProductRate' => $this->put('ProductRate'),
+            'OrderQuantity' => $this->put('OrderQuantity'),
+            'OrderPrice' => $this->put('OrderPrice')
         );
-        $this->Orders_mdl->update_orders($ORDERSID, $update_data);
+        $this->Orders_mdl->update_orders($OrdersId, $update_data);
         $message = [
-            'ORDERSID' => $this->put('ORDERSID'),
-            'SYSTEMUSERSID' => $this->put('SYSTEMUSERSID'),
-            'PRODUCTSID' => $this->put('PRODUCTSID'),
-            'ORDERDATE' => $this->put('ORDERDATE'),
-            'ORDERSTATUS' => $this->put('ORDERSTATUS'),
-            'PRODUCTRATE' => $this->put('PRODUCTRATE'),
-            'ORDERQUANTITY' => $this->put('ORDERQUANTITY'),
-            'ORDERPRICE' => $this->put('ORDERPRICE'),
+            'SystemUsersId' => $this->put('SystemUsersId'),
+            'ProductsId' => $this->put('ProductsId'),
+            'DiscountsId' => $this->put('DiscountsId'),
+            'OrdersDate' => $this->put('OrdersDate'),
+            'OrderStatus' => $this->put('OrderStatus'),
+            'ProductRate' => $this->put('ProductRate'),
+            'OrderQuantity' => $this->put('OrderQuantity'),
+            'OrderPrice' => $this->put('OrderPrice'),
             'message' => 'Updates a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -128,19 +131,19 @@ class Orders_ctl extends REST_Controller
     }
     public function orders_delete()
     {
-        $ORDERSID = (int) $this->get('ORDERSID');
+        $OrdersId = (int) $this->get('OrdersId');
         // Validate the ORDERSID.
-        if ($ORDERSID <= 0) {
+        if ($OrdersId <= 0) {
             // Set the response and exit
             $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
         // $this->some_model->delete_something($id);
         //check if the orders exists
-        $test = $this->Orders_mdl->get_order($ORDERSID);
-        if (!empty($test[0]['ORDERSID'])) {
-            $this->Orders_mdl->delete_orders($ORDERSID);
+        $test = $this->Orders_mdl->get_order($OrdersId);
+        if (!empty($test[0]['OrdersId'])) {
+            $this->Orders_mdl->delete_orders($OrdersId);
             $message = [
-                'ORDERSID' => $ORDERSID,
+                'OrdersId' => $OrdersId,
                 'message' => 'Deleted the resource',
             ];
             $this->set_response($message, REST_Controller::HTTP_OK);

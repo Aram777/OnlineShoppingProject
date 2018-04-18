@@ -22,61 +22,52 @@ class Products_ctl extends REST_Controller
     public function products_get()
     {
 
-        $products=$this->Products_mdl->get_products();
+        $products = $this->Products_mdl->get_products();
 
-        $PRODUCTSID = $this->get('PRODUCTSID');
+        $ProductsId = $this->get('ProductsId');
 
         // If the id parameter doesn't exist return all the users
 
-        if ($PRODUCTSID === NULL)
-        {
+        if ($ProductsId === null) {
             // Check if the users data store contains users (in case the database result returns NULL)
-            if ($products)
-            {
+            if ($products) {
                 // Set the response and exit
                 $this->response($products, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-            }
-            else
-            {
+            } else {
                 // Set the response and exit
                 $this->response([
-                    'status' => FALSE,
-                    'message' => 'No users were found'
+                    'status' => false,
+                    'message' => 'No users were found',
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
 
         // Find and return a single record for a particular user.
 
-        $PRODUCTSID = (int) $PRODUCTSID;
+        $ProductsId = (int) $ProductsId;
 
         // Validate the id.
-        if ($PRODUCTSID <= 0)
-        {
+        if ($ProductsId <= 0) {
             // Invalid id, set the response and exit.
-            $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+            $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
 
         // Get the user from the array, using the id as key for retrieval.
         // Usually a model is to be used for this.
 
-        $product = NULL;
+        $product = null;
 
-        if (!empty($products))
-        {
+        if (!empty($products)) {
             //Get the user from database
-            $product=$this->Products_mdl->get_product($PRODUCTSID);
+            $product = $this->Products_mdl->get_product($ProductsId);
         }
 
-        if (!empty($product))
-        {
+        if (!empty($product)) {
             $this->set_response($product, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-        }
-        else
-        {
+        } else {
             $this->set_response([
-                'status' => FALSE,
-                'message' => 'product could not be found'
+                'status' => false,
+                'message' => 'product could not be found',
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
 
@@ -84,103 +75,100 @@ class Products_ctl extends REST_Controller
     public function products_post()
     {
 
-// Add a new order
-$add_data=array(
+        $add_data = array(
 
-    'PRODUCTSCATEGORYID'=>$this->post('PRODUCTSCATEGORYID'),
-    'PRICECATEGORYID'=>$this->post('PRICECATEGORYID'),
-    'PRODUCNAME'=>$this->post('PRODUCNAME'),
-    'PRODUCTQUANTITY'=>$this->post('PRODUCTQUANTITY'),
-    'PRODUCTDESC'=>$this->post('PRODUCTDESC'),
-    'PRODUCTPICTURE'=>$this->post('PRODUCTPICTURE'),
-    'PRODUTMAXCAPASITY'=>$this->post('PRODUTMAXCAPASITY'),
-    'PRODUCTORDERPOINT'=>$this->post('PRODUCTORDERPOINT'),
-    'PRODUCTSTATE'=>$this->post('PRODUCTSTATE'),
-    'PRODUCTADDINGDATE'=>$this->post('PRODUCTADDINGDATE'),
-    'PRODUCTPRICE'=>$this->post('PRODUCTPRICE')
-  );
-  $this->Products_mdl->add_products($add_data);
-  $message = [
-    'PRODUCTSCATEGORYID'=>$this->post('PRODUCTSCATEGORYID'),
-    'PRICECATEGORYID'=>$this->post('PRICECATEGORYID'),
-    'PRODUCNAME'=>$this->post('PRODUCNAME'),
-    'PRODUCTQUANTITY'=>$this->post('PRODUCTQUANTITY'),
-    'PRODUCTDESC'=>$this->post('PRODUCTDESC'),
-    'PRODUCTPICTURE'=>$this->post('PRODUCTPICTURE'),
-    'PRODUTMAXCAPASITY'=>$this->post('PRODUTMAXCAPASITY'),
-    'PRODUCTORDERPOINT'=>$this->post('PRODUCTORDERPOINT'),
-    'PRODUCTSTATE'=>$this->post('PRODUCTSTATE'),
-    'PRODUCTADDINGDATE'=>$this->post('PRODUCTADDINGDATE'),
-    'PRODUCTPRICE'=>$this->post('PRODUCTPRICE'),
+            'ProductsCategoryId' => $this->post('ProductsCategoryId'),
+            'PriceCategoryId' => $this->post('PriceCategoryId'),
+            'ProductName' => $this->post('ProductName'),
+            'ProductQuantity' => $this->post('ProductQuantity'),
+            'ProductDesc' => $this->post('ProductDesc'),
+            'ProductPicture' => $this->post('ProductPicture'),
+            'ProdutMaxCapasity' => $this->post('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->post('ProductOrderPoint'),
+            'ProductState' => $this->post('ProductState'),
+            'ProductAddingDate' => $this->post('ProductAddingDate'),
+            'ProductPrice' => $this->post('ProductPrice'),
+        );
+        $this->Products_mdl->add_products($add_data);
+        $message = [
+            'ProductsCategoryId' => $this->post('ProductsCategoryId'),
+            'PriceCategoryId' => $this->post('PriceCategoryId'),
+            'ProductName' => $this->post('ProductName'),
+            'ProductQuantity' => $this->post('ProductQuantity'),
+            'ProductDesc' => $this->post('ProductDesc'),
+            'ProductPicture' => $this->post('ProductPicture'),
+            'ProdutMaxCapasity' => $this->post('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->post('ProductOrderPoint'),
+            'ProductState' => $this->post('ProductState'),
+            'ProductAddingDate' => $this->post('ProductAddingDate'),
+            'ProductPrice' => $this->post('ProductPrice'),
 
-      'message' => 'Added a resource'
-  ];
-  $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+            'message' => 'Added a resource',
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
 
     }
     public function products_put()
     {
-      // Update the orders
-        $PRODUCTSID=$this->put('PRODUCTSID');
-        $update_data=array(
+        // Update the orders
+        $ProductsId = $this->put('ProductsId');
+        $update_data = array(
 
-              'PRODUCTSID'=>$this->put('PRODUCTSID'),
-              'PRODUCTSCATEGORYID'=>$this->put('PRODUCTSCATEGORYID'),
-              'PRICECATEGORYID'=>$this->put('PRICECATEGORYID'),
-              'PRODUCNAME'=>$this->put('PRODUCNAME'),
-              'PRODUCTQUANTITY'=>$this->put('PRODUCTQUANTITY'),
-              'PRODUCTDESC'=>$this->put('PRODUCTDESC'),
-              'PRODUCTPICTURE'=>$this->put('PRODUCTPICTURE'),
-              'PRODUTMAXCAPASITY'=>$this->put('PRODUTMAXCAPASITY'),
-              'PRODUCTORDERPOINT'=>$this->put('PRODUCTORDERPOINT'),
-              'PRODUCTSTATE'=>$this->put('PRODUCTSTATE'),
-              'PRODUCTADDINGDATE'=>$this->put('PRODUCTADDINGDATE'),
-              'PRODUCTPRICE'=>$this->put('PRODUCTPRICE')
-            );
+            'ProductsId' => $this->put('ProductsId'),
+            'ProductsCategoryId' => $this->put('ProductsCategoryId'),
+            'PriceCategoryId' => $this->put('PriceCategoryId'),
+            'ProductName' => $this->put('ProductName'),
+            'ProductQuantity' => $this->put('ProductQuantity'),
+            'ProductDesc' => $this->put('ProductDesc'),
+            'ProductPicture' => $this->put('ProductPicture'),
+            'ProdutMaxCapasity' => $this->put('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->put('ProductOrderPoint'),
+            'ProductState' => $this->put('ProductState'),
+            'ProductAddingDate' => $this->put('ProductAddingDate'),
+            'ProductPrice' => $this->put('ProductPrice'),
+        );
 
-        $this->Products_mdl->update_products($PRODUCTSID, $update_data);
+        $this->Products_mdl->update_products($ProductsId, $update_data);
         $message = [
-          'PRODUCTSID'=>$this->put('PRODUCTSID'),
-          'PRODUCTSCATEGORYID'=>$this->put('PRODUCTSCATEGORYID'),
-          'PRICECATEGORYID'=>$this->put('PRICECATEGORYID'),
-          'PRODUCNAME'=>$this->put('PRODUCNAME'),
-          'PRODUCTQUANTITY'=>$this->put('PRODUCTQUANTITY'),
-          'PRODUCTDESC'=>$this->put('PRODUCTDESC'),
-          'PRODUCTPICTURE'=>$this->put('PRODUCTPICTURE'),
-          'PRODUTMAXCAPASITY'=>$this->put('PRODUTMAXCAPASITY'),
-          'PRODUCTORDERPOINT'=>$this->put('PRODUCTORDERPOINT'),
-          'PRODUCTSTATE'=>$this->put('PRODUCTSTATE'),
-          'PRODUCTADDINGDATE'=>$this->put('PRODUCTADDINGDATE'),
-          'PRODUCTPRICE'=>$this->put('PRODUCTPRICE'),
-            'message' => 'Updates a resource'
+            'ProductsId' => $this->put('ProductsId'),
+            'ProductsCategoryId' => $this->put('ProductsCategoryId'),
+            'PriceCategoryId' => $this->put('PriceCategoryId'),
+            'ProductName' => $this->put('ProductName'),
+            'ProductQuantity' => $this->put('ProductQuantity'),
+            'ProductDesc' => $this->put('ProductDesc'),
+            'ProductPicture' => $this->put('ProductPicture'),
+            'ProdutMaxCapasity' => $this->put('ProdutMaxCapasity'),
+            'ProductOrderPoint' => $this->put('ProductOrderPoint'),
+            'ProductState' => $this->put('ProductState'),
+            'ProductAddingDate' => $this->put('ProductAddingDate'),
+            'ProductPrice' => $this->put('ProductPrice'),
+            'message' => 'Updates a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
 
     }
 
-      public function products_delete()
-        {
-            $PRODUCTSID = (int) $this->get('PRODUCTSID');
-            // Validate the ORDERSID.
-            if ($PRODUCTSID <= 0)
-            {
-                // Set the response and exit
-                $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
-            }
-            // $this->some_model->delete_something($id);
-            //check if the orders exists
-            $test=$this->Products_mdl->get_products($PRODUCTSID);
-            if(!empty($test[0]['PRODUCTSID'])) {
-              $this->Products_mdl->delete_products($PRODUCTSID);
-              $message = [
-                  'PRODUCTSID' => $PRODUCTSID,
-                  'message' => 'Deleted the resource'
-              ];
-              $this->set_response($message, REST_Controller::HTTP_OK);
-            }
-            else {
-              $message="Error";
-              $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
-            }
+    public function products_delete()
+    {
+        $ProductsId = (int) $this->get('ProductsId');
+        // Validate the ORDERSID.
+        if ($ProductsId <= 0) {
+            // Set the response and exit
+            $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+        }
+        // $this->some_model->delete_something($id);
+        //check if the orders exists
+        $test = $this->Products_mdl->get_products($ProductsId);
+        if (!empty($test[0]['ProductsId'])) {
+            $this->Products_mdl->delete_products($ProductsId);
+            $message = [
+                'ProductsId' => $ProductsId,
+                'message' => 'Deleted the resource',
+            ];
+            $this->set_response($message, REST_Controller::HTTP_OK);
+        } else {
+            $message = "Error";
+            $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+        }
     }
 }

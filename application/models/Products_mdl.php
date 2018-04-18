@@ -4,29 +4,32 @@
  */
 class Products_mdl extends CI_model
 {
-    function get_products()
+    public function get_products()
     {
         $this->db->select('*');
-        $this->db->from('products');
+        $this->db->from('productsfullview');
         return $this->db->get()->result_array();
     }
-    function get_product($PRODUCTSID)
+    public function get_product($ProductsId)
     {
         $this->db->select('*');
-        $this->db->from('products');
-        $this->db->where('PRODUCTSID',$PRODUCTSID);
+        $this->db->from('productsfullview');
+        $this->db->where('ProductsId', $ProductsId);
 
         return $this->db->get()->result_array();
     }
-  function add_products($add_data){
-$this->db->insert('products',$add_data);
-  }
-  function update_products($PRODUCTSID, $update_data){
-       $this->db->where('PRODUCTSID',$PRODUCTSID);
-       $this->db->update('products',$update_data);
-}
-function delete_products($PRODUCTSID){
-       $this->db->where('PRODUCTSID',$PRODUCTSID);
-       $this->db->delete('products');
-}
+    public function add_products($add_data)
+    {
+        $this->db->insert('Products', $add_data);
+    }
+    public function update_products($ProductsId, $update_data)
+    {
+        $this->db->where('ProductsId', $ProductsId);
+        $this->db->update('Products', $update_data);
+    }
+    public function delete_products($ProductsId)
+    {
+        $this->db->where('ProductsId', $ProductsId);
+        $this->db->delete('Products');
+    }
 }

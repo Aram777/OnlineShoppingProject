@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'amitis.mysql.database.azure.com',
-	'username' => 'g6@amitis',
-	'password' => '1234567890',
-	'database' => 'onlineshopping',
+	'hostname' => 'group6onlineshopping.mysql.database.azure.com',
+	'username' => 'admingroup6@group6onlineshopping',
+	'password' => '1Group6Admin',
+	'database' => 'onlineshoppingtoy',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

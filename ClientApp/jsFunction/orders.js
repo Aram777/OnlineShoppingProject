@@ -76,7 +76,8 @@ function Addorder(){
     data.text = document.getElementById('update_PRODUCTRATE').value;
     data.text = document.getElementById('update_ORDERQUANTITY').value;
     data.text = document.getElementById('update_ORDERPRICE').value
-   var jsonData = JSON.stringify(data);
+   
+    var jsonData = JSON.stringify(data);
     xhttp.onreadystatechange = function() {
       if (xhttp.readyState == 4 && xhttp.status == 201) {
         document.getElementById('ResualtData').innerHTML = 'User updated succesfully';

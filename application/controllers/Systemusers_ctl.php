@@ -23,11 +23,11 @@ class Systemusers_ctl extends REST_Controller
     {
         $systemusers=$this->Systemusers_mdl->get_systemusers();
         
-                $SYSTEMUSERSID = $this->get('SYSTEMUSERSID');
+                $SystemUsersId = $this->get('SystemUsersId');
         
                 // If the id parameter doesn't exist return all the users
         
-                if ($SYSTEMUSERSID === NULL)
+                if ($SystemUsersId === NULL)
                 {
                     // Check if the users data store contains users (in case the database result returns NULL)
                     if ($systemusers)
@@ -47,10 +47,10 @@ class Systemusers_ctl extends REST_Controller
         
                 // Find and return a single record for a particular user.
         
-                $SYSTEMUSERSID = (int) $SYSTEMUSERSID;
+                $SystemUsersId = (int) $SystemUsersId;
         
                 // Validate the id.
-                if ($SYSTEMUSERSID <= 0)
+                if ($SystemUsersId <= 0)
                 {
                     // Invalid id, set the response and exit.
                     $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
@@ -59,15 +59,15 @@ class Systemusers_ctl extends REST_Controller
                 // Get the systemuser from the array, using the systemuserid as key for retrieval.
                 // Usually a model is to be used for this.
         
-                $systemusers = NULL;
+                $systemuser = NULL;
         
                 if (!empty($systemusers))
                 {
                     //Get the user from database
-                    $systemusers=$this->Systemusers_mdl->get_($SYSTEMUSERSID);
+                    $systemusers=$this->Systemusers_mdl->get_($SystemUsersId);
                 }
         
-                if (!empty($systemusers))
+                if (!empty($systemuser))
                 {
                     $this->set_response($systemusers, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
                 }
@@ -87,24 +87,24 @@ class Systemusers_ctl extends REST_Controller
         // Add a new systemusers
         $add_data=array(
           
-          'USERFIRSTNAME'=>$this->post('USERFIRSTNAME'),
-          'USERLASTNAME'=>$this->post('USERLASTNAME'),
-          'USEREMAIL'=>$this->post('USEREMAIL'),
-          'USERTYPE'=>$this->post('USERTYPE'),
-          'USERSTATE'=>$this->post('USERSTATE'),
-          'USERADDRESS'=>$this->post('USERADDRESS'),
-          'USERPASS'=>$this->post('USERPASS')
+          'UserFirstName'=>$this->post('UserFirstName'),
+          'UserLastName'=>$this->post('UserLastName'),
+          'UserEmail'=>$this->post('UserEmail'),
+          'UserType'=>$this->post('UserType'),
+          'UserState'=>$this->post('UserState'),
+          'UserAddress'=>$this->post('UserAddress'),
+          'UserPass'=>$this->post('UserPass')
         );
         $this->Systemusers_mdl->add_systemusers($add_data);
         $message = [
             
-            'USERFIRSTNAME'=>$this->post('USERFIRSTNAME'),
-            'USERLASTNAME'=>$this->post('USERLASTNAME'),
-            'USEREMAIL'=>$this->post('USEREMAIL'),
-            'USERTYPE'=>$this->post('USERTYPE'),
-            'USERSTATE'=>$this->post('USERSTATE'),
-            'USERADDRESS'=>$this->post('USERADDRESS'),
-            'USERPASS'=>$this->post('USERPASS'),
+            'UserFirstName'=>$this->post('UserFirstName'),
+            'UserLastName'=>$this->post('UserLastName'),
+            'UserEmail'=>$this->post('UserEmail'),
+            'UserType'=>$this->post('UserType'),
+            'UserState'=>$this->post('UserState'),
+            'UserAddress'=>$this->post('UserAddress'),
+            'UserPass'=>$this->post('UserPass'),
             'message' => 'Added a resource'
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -116,46 +116,46 @@ class Systemusers_ctl extends REST_Controller
     {// Update the systemusers
 
 
-        $SYSTEMUSERSID=$this->put('SYSTEMUSERSID');
+        $SystemUsersId=$this->put('SystemUsersId');
         $update_data=array(
-            'USERFIRSTNAME'=>$this->put('USERFIRSTNAME'),
-            'USERLASTNAME'=>$this->put('USERLASTNAME'),
-            'USEREMAIL'=>$this->put('USEREMAIL'),
-            'USERTYPE'=>$this->put('USERTYPE'),
-            'USERSTATE'=>$this->put('USERSTATE'),
-            'USERADDRESS'=>$this->put('USERADDRESS'),
-            'USERPASS'=>$this->put('USERPASS')
+            'UserFirstName'=>$this->put('UserFirstName'),
+            'UserLastName'=>$this->put('UserLastName'),
+            'UserEmail'=>$this->put('UserEmail'),
+            'UserType'=>$this->put('UserType'),
+            'UserState'=>$this->put('UserState'),
+            'UserAddress'=>$this->put('UserAddress'),
+            'UserPass'=>$this->put('UserPass')
           );
 
-        $this->Systemusers_mdl->update_systemusers($SYSTEMUSERSID, $update_data);
+        $this->Systemusers_mdl->update_systemusers($SystemUsersId, $update_data);
         $message = [
-            'USERFIRSTNAME'=>$this->put('USERFIRSTNAME'),
-            'USERLASTNAME'=>$this->put('USERLASTNAME'),
-            'USEREMAIL'=>$this->put('USEREMAIL'),
-            'USERTYPE'=>$this->put('USERTYPE'),
-            'USERSTATE'=>$this->put('USERSTATE'),
-            'USERADDRESS'=>$this->put('USERADDRESS'),
-            'USERPASS'=>$this->put('USERPASS'),
+            'UserFirstName'=>$this->put('UserFirstName'),
+            'UserLastName'=>$this->put('UserLastName'),
+            'UserEmail'=>$this->put('UserEmail'),
+            'UserType'=>$this->put('UserType'),
+            'UserState'=>$this->put('UserState'),
+            'UserAddress'=>$this->put('UserAddress'),
+            'UserPass'=>$this->put('UserPass'),
             'message' => 'Updates a resource'
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
     
     }
     public function systemusers_delete()
-    {$SYSTEMUSERSID = (int) $this->get('SYSTEMUSERSID');
-        // Validate the SYSTEMUSERSID.
-        if ($SYSTEMUSERSID <= 0)
+    {$SystemUsersId = (int) $this->get('SystemUsersId');
+        // Validate the SystemUsersId.
+        if ($SystemUsersId <= 0)
         {
             // Set the response and exit
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
         // $this->some_model->delete_something($id);
         //check if the systemusers exists
-        $test=$this->Systemusers_mdl->get_systemusers($SYSTEMUSERSID);
-        if(!empty($test[0]['SYSTEMUSERSID'])) {
-          $this->Systemusers_mdl->delete_systemusers($SYSTEMUSERSID);
+        $test=$this->Systemusers_mdl->get_systemusers($SystemUsersId);
+        if(!empty($test[0]['SystemUsersId'])) {
+          $this->Systemusers_mdl->delete_systemusers($SystemUsersId);
           $message = [
-              'SYSTEMUSERSID' => $SYSTEMUSERSID,
+              'SystemUsersId' => $SystemUsersId,
               'message' => 'Deleted the resource'
           ];
           $this->set_response($message, REST_Controller::HTTP_OK);

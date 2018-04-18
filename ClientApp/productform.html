@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="jsFunction/products.js"></script>
+
+    <title>Product</title>
+    <h2>Add Product</h2>
+    <form id="ProductsForm">
+        <label for="">PRICECATEGORYID</label>
+        <form action="">
+          <select name="PRICECATEGORYID">
+            <option value="01">01</option>
+            <option value="02">02</option>
+              <option value="03">03</option>
+                <option value="04">04</option>
+          </select>
+          <br><br>
+        <label for="">PRODUCNAME</label>
+        <br>
+        <input type="text" name="name" id="">
+        <br>
+
+        <label for="">PRODUCTQUANTITY</label>
+        <br>
+        <input type="number" name="PRODUCTQUANTITY" id="">
+        <br>
+
+        <label for="">PRODUCTDESC</label>
+        <br>
+        <input type="text" name="PRODUCTDESC" id="">
+        <br>
+
+        <label for="">PRODUCTPICTURE</label>
+        <input type="file" name="img" id="">
+       <br>
+
+      <label for="">PRODUTMAXCAPASITY</label>
+    <input type="text" name="PRODUTMAXCAPASITY" id="">
+    <br>
+
+    <label for="">PRODUCTORDERPOINT</label>
+    <select name="PRODUCTORDERPOINT">
+      <option value="00">00</option>
+      <option value="02">02</option>
+    </select>
+  <br>
+
+      <label for="">PRODUCTPRICE</label>
+      <input type="text" name="PRODUCTPRICE" id="">
+<br>
+
+  </form>
+  <button onclick="addProduct()">Add Product</button>
+    <h2>Update Product</h2>
+    <label for="">PRICECATEGORYID</label>
+    <br>
+    <input type="number" name="updateid" id="">
+    <br>
+
+    <label for="">PRODUCNAME</label>
+    <br>
+    <input type="text" name="update_PRODUCNAME" id="">
+    <br>
+
+    <label for="">PRODUCTQUANTITY</label>
+    <br>
+    <input type="number" name="update_PRODUCTQUANTITY" id="">
+    <br>
+
+    <label for="">PRODUCTDESC</label>
+    <br>
+    <input type="text" name="update_PRODUCTDESC" id="">
+    <br>
+
+    <label for="">PRODUCTPICTURE</label>
+  <input type="text" name="update_PRODUCTPICTURE" id="">
+  <br>
+
+  <label for="">PRODUTMAXCAPASITY</label>
+<input type="text" name="update_PRODUTMAXCAPASITY" id="">
+<br>
+
+<br>
+
+  <label for="">PRODUCTPRICE</label>
+  <input type="text" name="update_PRODUCTPRICE" id="">
+<br>
+
+  <button onclick="UpdateProduct()">Update Product</button
+    <br>
+    <h2>Delete Product</h2>
+    <label for="">Write the id</label>
+    <input type="number" id='delete_id'>
+    <button onclick="DeleteProduct()">Delete Products</button>
+    <div id='results'></div>
+</body>
+
+</html>
