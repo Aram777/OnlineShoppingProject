@@ -10,21 +10,21 @@ class Orders_mdl extends CI_model
         $this->db->from('orders');
         return $this->db->get()->result_array();
     }
-    function get_order($ORDERSID){
+    function get_order($OrdersId){
         $this->db->select('*');
         $this->db->from('orders');
-        $this->db->where('ORDERSID',$ORDERSID);
+        $this->db->where('OrdersId',$OrdersId);
         return $this->db->get()->result_array();
       }
     function add_orders($add_data){
         $this->db->insert('orders',$add_data); 
      }
-     function update_orders($ORDERSID, $update_data){
-        $this->db->where('ORDERSID',$ORDERSID);
+     function update_orders($OrdersId, $update_data){
+        $this->db->where('OrdersId',$OrdersId);
         $this->db->update('orders',$update_data);
       }
-      function delete_orders($ORDERSID){
-        $this->db->where('ORDERSID',$ORDERSID);
+      function delete_orders($OrdersId){
+        $this->db->where('OrdersId',$OrdersId);
         $this->db->delete('orders');
       }
     }
