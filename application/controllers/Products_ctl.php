@@ -21,19 +21,27 @@ class Products_ctl extends REST_Controller
     }
     public function products3_get()
     {
-        $products = $this->Products_mdl->get_3products();
+        if ($this->session->userdata('logged_in') == 1) {
 
-        if ($products) {
-            // Set the response and exit
-            $this->response($products, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+            $products = $this->Products_mdl->get_3products();
+
+            if ($products) {
+                // Set the response and exit
+                $this->response($products, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+            } else {
+                // Set the response and exit
+                $this->response([
+                    'status' => false,
+                    'message' => 'No 3 products found found',
+                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+            }
         } else {
-            // Set the response and exit
             $this->response([
                 'status' => false,
-                'message' => 'No 3 products found found',
+                'message' => 'login first',
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
-        }
 
+        }
     }
 
     public function products_get()

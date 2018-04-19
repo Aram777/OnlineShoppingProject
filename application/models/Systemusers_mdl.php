@@ -49,7 +49,7 @@ class Systemusers_mdl extends CI_model
                 'logged_in' => 1,
             );
             $this->session->set_userdata($newdata);
-            $resultlogtt = array(
+            $resultlog = array(
                 'ChkData' => 123,
                 'UserFirstName' => $login[0]['UserFirstName'],
                 'isAdmin' => $login[0]['UserType'],
@@ -63,13 +63,13 @@ class Systemusers_mdl extends CI_model
                 'logged_in' => 0,
             );
             $this->session->set_userdata($newdata);
-            $resultlogt = array(
+            $resultlog = array(
                 'ChkData' => 111,
                 'UserFirstName' => 'hichi',
                 'isAdmin' => -1,
                 'logged_in' => 0);
         }
-        return $resultlogt;
+        return $resultlog;
     }
 
 }
