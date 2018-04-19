@@ -4,6 +4,13 @@
  */
 class Products_mdl extends CI_model
 {
+    public function get_3products()
+    {
+        $this->db->select('*');
+        $this->db->from('productsfullview');
+        $this->db->limit(3);
+        return $this->db->get()->result_array();
+    }
     public function get_products()
     {
         $this->db->select('*');
