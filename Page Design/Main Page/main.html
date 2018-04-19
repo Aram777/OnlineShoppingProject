@@ -28,6 +28,17 @@
         <ul class="navbar-nav mr-auto myh4">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin menu
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">1</a>
+              <a class="dropdown-item" href="#">2</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">3</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Toys
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,10 +55,10 @@
         </div>
         <ul class="navbar-nav ml-auto myh4">
           <li class="nav-item active">
-            <a class="nav-link" id="login" href="#">Login</a>
+            <a class="nav-link" id="LoginB" href="#" onclick="openModal(1)">Login</a>
           </li>
           <li class="nav-item active">
-            <a href="../Register Page/register.html" class="nav-link" href="#">Register</a>
+            <a class="nav-link" id="RegisterB" href="#" onclick="openModal(2)">Register</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">My Cart</a>
@@ -57,6 +68,9 @@
     </nav>
   </nav>
   </div>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Register">
+  Launch demo modal
+</button> -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -100,7 +114,7 @@
       </a>
     </div>
   </div>
-  <div id="myModal" class="modal">
+  <div id="Login" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <div class="transparent-container">
@@ -132,34 +146,151 @@
         </div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
       </form>
+      </div>
     </div>
   </div>
-</div>
+
+
+  <div class="modal" id="RegisterModal">
+    <div class="modal-content w-75">
+      <span class="close">&times;</span>
+      <div class="pb-5 text-center">
+        <h2 class="myh2">Registration</h2>
+        <p class="myp">Only few steps before your account is created!</p>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <h4 class="mb-3 myh4">User Information:</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3 mytext">
+              <label for="firstName">First name:</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback mytext">
+                Please, enter your first name.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3 mytext">
+              <label for="lastName">Last name:</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback mytext">
+                Please, enter your last name.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 mytext">
+            <label for="username">Username:</label>
+              <div class="input-group mytext">
+                <div class="input-group-prepend mytext">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <div class="invalid-feedback mytext" style="width: 100%;">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3 mytext">
+              <label for="Password">Password:</label>
+              <div class="input-group mytext">
+                <input type="text" class="form-control" id="Password" placeholder="Password" required>
+                <div class="invalid-feedback mytext" style="width: 100%;">
+                  Your password is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3 mytext">
+              <label for="email">Email <span class="text-muted">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback mytext">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="mb-3 mytext">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <div class="invalid-feedback mytext">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="mb-3 mytext">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <div class="row mytext">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select class="custom-select d-block w-100" id="country" required>
+                  <option value="">Choose...</option>
+                  <option>Finland</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="city">City</label>
+                <select class="custom-select d-block w-100" id="city" required>
+                  <option value="">Choose...</option>
+                  <option>Oulu</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox mytext">
+              <input type="checkbox" class="custom-control-input" id="same-address">
+              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+            </div>
+            <div class="custom-control custom-checkbox mytext">
+              <input type="checkbox" class="custom-control-input" id="save-info">
+              <label class="custom-control-label" for="save-info">Save this information for next time</label>
+            </div>
+            <hr class="mb-4">
+          </div>
+
+          <hr class="mb-4 mytext">
+          <button class="btn btn-warning btn-lg btn-block" type="submit">Create Account</button>
+          <button class="btn btn-outline-warning btn-lg btn-block" type="button" >Back to shopping</button>
+        </form>
+      </div>
+    </div>
+
 <script>
-// Get the modal
-var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("login");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+function openModal(number) {
+  var modal ;
+  var btn ;
+  var span;
+  if (number == 1) {
+    modal = document.getElementById('Login');
+    span = document.getElementsByClassName("close")[0];
+  } else {
+    modal = document.getElementById('RegisterModal')
+    span = document.getElementsByClassName("close")[1];
+  }
+  modal.style.display = "block";
+  span.onclick = function() {
     modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+  }
+  window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+  }
 }
 </script>
 </body>
