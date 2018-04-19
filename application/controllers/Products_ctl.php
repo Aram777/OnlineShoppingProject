@@ -21,7 +21,8 @@ class Products_ctl extends REST_Controller
     }
     public function products3_get()
     {
-        if ($this->session->userdata('logged_in') == 1) {
+//        if ($this->session->userdata('logged_in') == 1) {
+            if (1) {
 
             $products = $this->Products_mdl->get_3products();
 
