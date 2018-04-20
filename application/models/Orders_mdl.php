@@ -16,6 +16,16 @@ class Orders_mdl extends CI_model
         $this->db->where('OrdersId',$OrdersId);
         return $this->db->get()->result_array();
       }
+
+      function get_userorder($SystemUsersId){
+        $this->db->select('*');
+        $this->db->from('orders');
+        $this->db->where('SystemUsersId',$SystemUsersId);
+        return $this->db->get()->result_array();
+      }
+
+
+
     function add_orders($add_data){
         $this->db->insert('orders',$add_data); 
      }
