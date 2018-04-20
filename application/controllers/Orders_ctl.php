@@ -23,7 +23,7 @@ class Orders_ctl extends REST_Controller
     {
         // Users from a data store e.g. database
         $orders=$this->Orders_mdl->get_orders();
-        $ORDERSID = $this->get('OrdersId');
+        $OrdersId = $this->get('OrdersId');
         // If the id parameter doesn't exist return all the users
         if ($OrdersId === NULL)
         {
@@ -56,7 +56,7 @@ class Orders_ctl extends REST_Controller
         if (!empty($orders))
         {
             //Get the user from database
-            $order=$this->Order_mdl->get_order($OrdersId);
+            $order=$this->Orders_mdl->get_order($OrdersId);
         }
         if (!empty($order))
         {
@@ -103,7 +103,8 @@ class Orders_ctl extends REST_Controller
     {
         // Update the orders
 
-        $ORDERSID = $this->put('OrdersId');
+        $OrdersId = $this->put('OrdersId');
+        $ppp=$OrdersId ;
         $update_data = array(
             'SystemUsersId' => $this->put('SystemUsersId'),
             'ProductsId' => $this->put('ProductsId'),
