@@ -4,17 +4,13 @@
  */
 class Systemusers_mdl extends CI_model
 {
-    public function get_systemusers()
+    public function get_systemusers($SystemUsersId)
     {
         $this->db->select('*');
         $this->db->from('systemusersview');
-        return $this->db->get()->result_array();
-    }
-    public function get_systemuser($SystemUsersId)
-    {
-        $this->db->select('*');
-        $this->db->from('systemusers');
-        $this->db->where('SystemUsersId', $SystemUsersId);
+        if ($SystemUsersId > 0) {
+            $this->db->where('SystemUsersId', $SystemUsersId);
+        }
         return $this->db->get()->result_array();
     }
     public function add_systemusers($add_data)

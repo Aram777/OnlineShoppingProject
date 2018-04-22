@@ -21,43 +21,15 @@ class Orders_ctl extends REST_Controller
     }
     public function orders_get()
     {
-        // Users from a data store e.g. database
-        $orders = $this->Orders_mdl->get_orders();
         $OrdersId = $this->get('OrdersId');
-        // If the id parameter doesn't exist return all the users
-        if ($OrdersId === null) {
-            // Check if the users data store contains users (in case the database result returns NULL)
-            if ($orders) {
-                // Set the response and exit
-                $this->response($orders, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-            } else {
-                // Set the response and exit
-                $this->response([
-                    'status' => false,
-                    'message' => 'No orders were found',
-                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
-            }
-        }
-        // Find and return a single record for a particular user.
-        $OrdersId = (int) $OrdersId;
-        // Validate the id.
-        if ($OrdersId <= 0) {
-            // Invalid id, set the response and exit.
-            $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
-        }
-        // Get the user from the array, using the id as key for retrieval.
-        // Usually a model is to be used for this.
-        $order = null;
-        if (!empty($orders)) {
-            //Get the user from database
-            $order = $this->Orders_mdl->get_order($OrdersId);
-        }
-        if (!empty($order)) {
-            $this->set_response($order, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        $OrdersId = isset($OrdersId) ? $OrdersId : 0;
+        $orders = $this->Orders_mdl->get_orders($OrdersId);
+        if ($orders) {
+            $this->response($orders, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
         } else {
-            $this->set_response([
+            $this->response([
                 'status' => false,
-                'message' => 'order could not be found',
+                'message' => 'No orders were found',
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }

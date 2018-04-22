@@ -22,7 +22,7 @@ class Products_ctl extends REST_Controller
     public function products3_get()
     {
 //        if ($this->session->userdata('logged_in') == 1) {
-            if (1) {
+        if (1) {
 
             $products = $this->Products_mdl->get_3products();
 
@@ -48,55 +48,17 @@ class Products_ctl extends REST_Controller
     public function products_get()
     {
 
-        $products = $this->Products_mdl->get_products();
-
         $ProductsId = $this->get('ProductsId');
-
-        // If the id parameter doesn't exist return all the users
-
-        if ($ProductsId === null) {
-            // Check if the users data store contains users (in case the database result returns NULL)
-            if ($products) {
-                // Set the response and exit
-                $this->response($products, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-            } else {
-                // Set the response and exit
-                $this->response([
-                    'status' => false,
-                    'message' => 'No users were found',
-                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
-            }
-        }
-
-        // Find and return a single record for a particular user.
-
-        $ProductsId = (int) $ProductsId;
-
-        // Validate the id.
-        if ($ProductsId <= 0) {
-            // Invalid id, set the response and exit.
-            $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
-        }
-
-        // Get the user from the array, using the id as key for retrieval.
-        // Usually a model is to be used for this.
-
-        $product = null;
-
-        if (!empty($products)) {
-            //Get the user from database
-            $product = $this->Products_mdl->get_product($ProductsId);
-        }
-
-        if (!empty($product)) {
-            $this->set_response($product, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        $ProductsId = isset($ProductsId) ? $ProductsId : 0;
+        $products = $this->Products_mdl->get_products($ProductsId);
+        if ($products) {
+            $this->response($products, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
         } else {
-            $this->set_response([
+            $this->response([
                 'status' => false,
-                'message' => 'product could not be found',
+                'message' => 'No products were found',
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
-
     }
     public function products_post()
     {

@@ -11,18 +11,13 @@ class Products_mdl extends CI_model
         $this->db->limit(3);
         return $this->db->get()->result_array();
     }
-    public function get_products()
+    public function get_products($ProductsId)
     {
         $this->db->select('*');
         $this->db->from('productsfullview');
-        return $this->db->get()->result_array();
-    }
-    public function get_product($ProductsId)
-    {
-        $this->db->select('*');
-        $this->db->from('productsfullview');
-        $this->db->where('ProductsId', $ProductsId);
-
+        if ($ProductsId > 0) {
+            $this->db->where('ProductsId', $ProductsId);
+        }
         return $this->db->get()->result_array();
     }
     public function add_products($add_data)
