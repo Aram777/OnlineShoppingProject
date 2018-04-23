@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="productcategory_script.js"></script>
+  </head>
+  <body>
+
+  <div class="container">
+    <h2>Products Category</h2>
+    <p><td><button class="btn btn-primary" onclick="Add Products Category">Add products Category</button></td></p>
+    <table class="table table-bordered table-hover" id="data_table">
+
+        <tr class="info">
+          <th>Products Category Id</th>
+          <th>PrdCatDescription</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <th>
+        </tr>
+          </tr>
+          <tr id="row1">
+            <td id="Products_Category_Id_row1">01</td>
+            <td id="PrdCatDescription_row1">0-1 years</td>
+            <td>
+              <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')"></td>
+              <td>
+              <input type="button" value="Delete" class="btn btn-danger" onclick="delete_row('1')">
+
+         </td>
+       </tr>
+       <tr id ="row2">
+         <td id="Products_Category_Id_row2">02</td>
+           <td id="PrdCatDescription_row1_row2">0-4 years</td>
+           <td>
+             <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')"></td>
+             <td>
+             <input type="button" value="Delete" class="btn btn-danger" onclick="delete_row('1')">
+           </td>
+           <tr id ="row3">
+             <td id="Products_Category_Id_row3">03</td>
+               <td id="PrdCatDescription_row1_row2">4-8 years</td>
+               <td>
+                 <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')"></td>
+                 <td>
+                 <input type="button" value="Delete" class="btn btn-danger" onclick="delete_row('1')">
+               </td>
+     </td>
+   </tr>
+
+
+   </table>
+
+   </div>
+
+   </body>
+   </html>
