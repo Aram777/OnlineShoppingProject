@@ -21,55 +21,33 @@ class Orders_ctl extends REST_Controller
     }
     public function orders_get()
     {
-        // Users from a data store e.g. database
-        $orders=$this->Orders_mdl->get_orders();
-        $ORDERSID = $this->get('OrdersId');
-        // If the id parameter doesn't exist return all the users
-        if ($OrdersId === NULL)
-        {
-            // Check if the users data store contains users (in case the database result returns NULL)
-            if ($orders)
-            {
-                // Set the response and exit
-                $this->response($orders, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-            }
-            else
-            {
-                // Set the response and exit
-                $this->response([
-                    'status' => FALSE,
-                    'message' => 'No orders were found'
-                ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
-            }
-        }
-        // Find and return a single record for a particular user.
-        $OrdersId = (int) $OrdersId;
-        // Validate the id.
-        if ($OrdersId <= 0)
-        {
-            // Invalid id, set the response and exit.
-            $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
-        }
-        // Get the user from the array, using the id as key for retrieval.
-        // Usually a model is to be used for this.
-        $order = NULL;
-        if (!empty($orders))
-        {
-            //Get the user from database
-            $order=$this->Order_mdl->get_order($OrdersId);
-        }
-        if (!empty($order))
-        {
-            $this->set_response($order, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
-        }
-        else
-        {
-            $this->set_response([
-                'status' => FALSE,
-                'message' => 'order could not be found'
+        $OrdersId = $this->get('OrdersId');
+        $OrdersId = isset($OrdersId) ? $OrdersId : 0;
+        $orders = $this->Orders_mdl->get_orders($OrdersId);
+        if ($orders) {
+            $this->response($orders, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'No orders were found',
             ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }
+
+    public function userorders_get()
+    {
+        $SystemUsersId = $this->get('SystemUsersId');
+        $orders = $this->Orders_mdl->get_userorder($SystemUsersId);
+        if ($orders) {
+            $this->response($orders, REST_Controller::HTTP_OK); // OK (200) being the HTTP response code
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'No orders were found for this user',
+            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+        }
+    }
+
     public function orders_post()
     {
         // Add a new order
@@ -81,7 +59,7 @@ class Orders_ctl extends REST_Controller
             'OrderStatus' => $this->post('OrderStatus'),
             'ProductRate' => $this->post('ProductRate'),
             'OrderQuantity' => $this->post('OrderQuantity'),
-            'OrderPrice' => $this->post('OrderPrice')
+            'OrderPrice' => $this->post('OrderPrice'),
         );
         $this->Orders_mdl->add_orders($add_data);
         $message = [
@@ -103,7 +81,8 @@ class Orders_ctl extends REST_Controller
     {
         // Update the orders
 
-        $ORDERSID = $this->put('OrdersId');
+        $OrdersId = $this->put('OrdersId');
+        $ppp = $OrdersId;
         $update_data = array(
             'SystemUsersId' => $this->put('SystemUsersId'),
             'ProductsId' => $this->put('ProductsId'),
@@ -112,7 +91,7 @@ class Orders_ctl extends REST_Controller
             'OrderStatus' => $this->put('OrderStatus'),
             'ProductRate' => $this->put('ProductRate'),
             'OrderQuantity' => $this->put('OrderQuantity'),
-            'OrderPrice' => $this->put('OrderPrice')
+            'OrderPrice' => $this->put('OrderPrice'),
         );
         $this->Orders_mdl->update_orders($OrdersId, $update_data);
         $message = [
