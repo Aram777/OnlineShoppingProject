@@ -132,12 +132,12 @@
           <h1 class="h3 mb-3 font-weight-normal myp">Welcome back!</h1>
         </div>
 
-        <div class="form-label-group myp">
+        <div>
           <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
           <br>
         </div>
 
-        <div class="form-label-group myp">
+        <div>
           <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
           <br>
         </div>
@@ -161,75 +161,62 @@
 
   <!-- REGISTER MODAL -->
   <div class="modal" id="RegisterModal">
-    <div class="modal-content w-55">
-      <span class="close">&times;</span>
-      <div class="pb-5 text-center">
-        <h2 class="myh2">Registration</h2>
-        <p class="myp">Only few steps before your account is created!</p>
+    <div class="modal-content w-60">
+      <div class="modal-header">
+        <p class="modal-title">Modal title</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="col-md-6 order-md-1">
-        <h4 class="mb-3 myh4">User Information:</h4>
+      <div class="modal-body">
+      <div class="text-center">
+        <img class="" src="logo.png" alt="" width="200">
+      </div>
+      <div class="order-md-1">
         <form class="needs-validation" novalidate>
-          <div class="row">
-            <div class="col-md-6 mb-3 mytext">
-              <label for="firstName">First name:</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback mytext">
+            <div class="mb-3 mytext">
+               <label for="firstName">First name:</label>
+               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+               <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+               <div class="invalid-feedback mytext">
                 Please, enter your first name.
-              </div>
-            </div>
-            <div class="col-md-6 mb-3 mytext">
+               </div>
+           </div>
+           <div class="mb-3 mytext">
               <label for="lastName">Last name:</label>
+              <span class="input-group-addon"></span>
               <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
               <div class="invalid-feedback mytext">
                 Please, enter your last name.
               </div>
+           </div>
+           <div class="mb-3 mytext">
+            <label for="email">Email </label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback mytext">
+              Please enter a valid email address for shipping updates.
             </div>
           </div>
           <div class="mb-3 mytext">
-            <label for="username">Username:</label>
-              <div class="input-group mytext">
-                <div class="input-group-prepend mytext">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-                <div class="invalid-feedback mytext" style="width: 100%;">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3 mytext">
               <label for="Password">Password:</label>
               <div class="input-group mytext">
-                <input type="text" class="form-control" id="Password" placeholder="Password" required>
+               <input type="text" class="form-control" id="Password" placeholder="Password" required>
                 <div class="invalid-feedback mytext" style="width: 100%;">
-                  Your password is required.
+                 Your password is required.
                 </div>
               </div>
-            </div>
-
-            <div class="mb-3 mytext">
-              <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback mytext">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <div class="mb-3 mytext">
+         </div>
+          <div class="mb-3 mytext">
               <label for="address">Address</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
               <div class="invalid-feedback mytext">
                 Please enter your shipping address.
               </div>
-            </div>
-
-            <div class="mb-3 mytext">
+         </div>
+         <div class="mb-3 mytext">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
               <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-
+         </div>
             <div class="row mytext">
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
@@ -270,11 +257,14 @@
             </div>
             <hr class="mb-4">
           </div>
-
-          <hr class="mb-4 mytext">
         </form>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back to Shopping</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
+  </div>
   <!-- END OF REGISTER MODAL -->
   <footer style="background-color: #FEF377 !important;">
     <nav class="navbar navbar-expand-lg navbar-light px-3 myh5" style="background-color: #FEF377 !important;">
