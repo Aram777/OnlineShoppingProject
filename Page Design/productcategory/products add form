@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form action=" ">
+  Product Category Id:<br>
+  <input type="number" name="text" value="text">
+  <br>
+  Last name:<br>
+  <input type="text" name="productcategory" value="productcategory">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>
