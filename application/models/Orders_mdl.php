@@ -17,7 +17,7 @@ class Orders_mdl extends CI_model
     public function get_userorder($SystemUsersId)
     {
         $this->db->select('*');
-        $this->db->from('orders');
+        $this->db->from('productandorderview');
         $this->db->where('SystemUsersId', $SystemUsersId);
         return $this->db->get()->result_array();
     }
