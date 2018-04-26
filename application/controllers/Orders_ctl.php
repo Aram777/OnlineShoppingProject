@@ -110,15 +110,11 @@ class Orders_ctl extends REST_Controller
     }
     public function orders_delete()
     {
-        $OrdersId = (int) $this->get('OrdersId');
-        // Validate the ORDERSID.
+        $OrdersId = $this->get('OrdersId');
         if ($OrdersId <= 0) {
-            // Set the response and exit
             $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
-        // $this->some_model->delete_something($id);
-        //check if the orders exists
-        $test = $this->Orders_mdl->get_order($OrdersId);
+        $test = $this->Orders_mdl->get_orders($OrdersId);
         if (!empty($test[0]['OrdersId'])) {
             $this->Orders_mdl->delete_orders($OrdersId);
             $message = [
@@ -130,6 +126,7 @@ class Orders_ctl extends REST_Controller
             $message = "Error";
             $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
         }
+
     }
 
 }
