@@ -1,18 +1,16 @@
+
 <!DOCTYPE HTML>
 
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="shopcart.css">
-
+    <script src="shiva.js"></script>
 </head>
 <body>
 
-</body>
 
-
-</html>
-
-
+<button onclick="makecart()"></button>
+<br>
 <h1>Shopping Cart</h1>
 
 <div class="ShoppingCart">
@@ -25,47 +23,7 @@
     <label class="Itemremove">Remove</label>
     <label class="Productsprice">Total</label>
   </div>
-
-  <div class="Item">
-    <div class="Itemimage">
-      <img src="https://cdn.pixabay.com/photo/2018/04/17/09/44/teddy-bear-3327076_960_720.png">
-    </div>
-    <div class="Itemdescription">
-      <div class="Itemname">Teddy Bear</div>
-      <p class="Itemdetails">She is soft and beautiful. Children will like it.</p>
-    </div>
-    <div class="Itemprice">10</div>
-    <div class="Itemquantity">
-      <input type="number" value="1" min="1">
-    </div>
-    <div class="Itemremove">
-      <button class="Removeitem">
-        Remove
-      </button>
-    </div>
-    <div class="Productsprice">10</div>
-  </div>
-
-  <div class="Item">
-    <div class="Itemimage">
-      <img src="https://cdn.pixabay.com/photo/2018/03/25/21/01/motor-loop-3260697_960_720.jpg">
-    </div>
-    <div class="Itemdescription">
-      <div class="Itemname">Motor Loop Toy</div>
-      <p class="Itemdetails">Babies are naturally curious and exploratory. The activity loops early development baby toy is an intriguing Group of colorful baby-safe pliable plastic tubes, black-and-white beads, and sliding rings to engage baby's motor skill development.</p>
-    </div>
-    <div class="Itemprice">25</div>
-    <div class="Itemquantity">
-      <input type="number" value="2" min="1">
-    </div>
-    <div class="Itemremove">
-      <button class="Removeitem">
-        Remove
-      </button>
-    </div>
-    <div class="Productsprice">50</div>
-  </div>
-
+<div id="shivadiv"></div>
   <div class="Total">
     <div class="Itemtotal">
       <label>Subtotal</label>
@@ -88,6 +46,7 @@
       <button class="Checkout">Checkout</button>
 
 </div>
+
 </body>
 
 
