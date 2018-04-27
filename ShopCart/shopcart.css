@@ -37,7 +37,7 @@
   }
   
   .Item .Itemprice:before, .Item .Productsprice:before, .Totalvalue:before {
-    content: '€';
+    content: '$';
   }
   
   body {
