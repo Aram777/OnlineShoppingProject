@@ -6,7 +6,8 @@ class Pricecategory_mdl extends CI_model
 {
     public function get_pricecategory($PriceCategoryId)
     {
-        $this->db->select('*');
+        $sqltxt='PriceCategoryId, PriceCatPerecent, ifnull((select tt.PriceCategoryId from products tt where tt.PriceCategoryId= pricecategory.PriceCategoryId limit 1),0) as Chkuse ';
+        $this->db->select($sqltxt);
         $this->db->from('pricecategory');
         if ($PriceCategoryId > 0) {
             $this->db->where('PriceCategoryId', $PriceCategoryId);

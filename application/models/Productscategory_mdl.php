@@ -6,7 +6,9 @@ class Productscategory_mdl extends CI_model
 {
     public function get_productscategory($ProductsCategoryId)
     {
-        $this->db->select('*');
+        $sqltxt='ProductsCategoryId, PrdCatDescription, ifnull((select tt.ProductsCategoryId from products tt where tt.ProductsCategoryId= productscategory.ProductsCategoryId limit 1),0) as Chkuse ';
+
+        $this->db->select($sqltxt);
         $this->db->from('productscategory');
         if ($ProductsCategoryId>0) {
             $this->db->where('ProductsCategoryId', $ProductsCategoryId);
