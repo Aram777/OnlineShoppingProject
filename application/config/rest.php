@@ -546,7 +546,7 @@ $config['rest_language'] = 'english';
 | will access it through a browser
 |
 */
-$config['check_cors'] = FALSE;
+$config['check_cors'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -577,8 +577,8 @@ $config['allowed_cors_methods'] = [
   'POST',
   'OPTIONS',
   'PUT',
-  'PATCH',
-  'DELETE'
+  'DELETE',
+  'PATCH'
 ];
 
 /*
@@ -590,7 +590,7 @@ $config['allowed_cors_methods'] = [
 | source domain
 |
 */
-$config['allow_any_cors_domain'] = FALSE;
+$config['allow_any_cors_domain'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -624,4 +624,7 @@ $config['allowed_cors_origins'] = [];
 | http://docs.sencha.com/extjs/6.5.2/classic/Ext.data.proxy.Rest.html#cfg-withCredentials
 |
 */
-$config['forced_cors_headers'] = [];
+$config['forced_cors_headers'] = [
+  'Access-Control-Allow-Credentials' => 'true',
+
+];
