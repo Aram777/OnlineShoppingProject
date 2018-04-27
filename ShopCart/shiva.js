@@ -2,20 +2,19 @@
 
 function makecart(){
     document.getElementById('shivadiv').innerHTML ='';
-    var url = 'http://localhost/OnlineShoppingProject/index.php/Orders_ctl/userorders/SystemUsersId/';
-    alert(url);
+    var url = 'http://localhost/OnlineShoppingProject/index.php/Orders_ctl/userorders/SystemUsersId/2';
     var xhttp = new XMLHttpRequest();
     xhttp.open('GET', url, true);
     var jsonData = '';
 //var totprc=0
-   // var data = '';
+    var data = '';
 
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             jsonData = JSON.parse(xhttp.responseText);
             for (x in jsonData) {
               //totprc+=$row['product_price']
-               // data +=
+                data +=
 
                 '<div class="Item">'+
                 '<div class="Itemimage">'+
