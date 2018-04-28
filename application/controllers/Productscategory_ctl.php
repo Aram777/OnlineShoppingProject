@@ -19,6 +19,29 @@ class Productscategory_ctl extends REST_Controller
         $this->methods['productscategory_delete']['limit'] = 50; // 50 requests per hour per user/key
         $this->load->model('Productscategory_mdl');
     }
+    public function productscategorydel_get(){
+        $ProductsCategoryId = (int) $this->get('ProductsCategoryId');
+        // Validate the id.
+        if ($ProductsCategoryId <= 0) {
+            // Set the response and exit
+            $this->response(null, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
+        }
+        // $this->some_model->delete_something($PRICECATEGORYID);
+        //check if the price exists
+        $test = $this->Productscategory_mdl->get_productscategory($ProductsCategoryId);
+        if (!empty($test[0]['ProductsCategoryId'])) {
+            $this->Productscategory_mdl->delete_productscategory($ProductsCategoryId);
+            $message = [
+                'ProductsCategoryId' => $ProductsCategoryId,
+                'message' => 'Deleted the resource',
+            ];
+            $this->set_response($message, REST_Controller::HTTP_OK);
+        } else {
+            $message = "Error";
+            $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (
+        }
+        
+    }
     public function productscategory_get()
     {
         $ProductsCategoryId = $this->get('ProductsCategoryId');
