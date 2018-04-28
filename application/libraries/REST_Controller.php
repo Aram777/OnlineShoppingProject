@@ -389,8 +389,9 @@ abstract class REST_Controller extends CI_Controller {
      */
     public function __construct($config = 'rest')
     {
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
         parent::__construct();
-
         $this->preflight_checks();
 
         // Set the default value of global xss filtering. Same approach as CodeIgniter 3
