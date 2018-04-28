@@ -3,6 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 
+
 class Pricecategory_ctl extends REST_Controller
 {
 
