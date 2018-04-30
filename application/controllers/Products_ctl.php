@@ -19,6 +19,31 @@ class Products_ctl extends REST_Controller
         $this->methods['products_delete']['limit'] = 50; // 50 requests per hour per user/key
         $this->load->model('Products_mdl');
     }
+
+    public function productsdel_get()
+    {
+        $ProductsId = $this->get('ProductsId');
+        $ProductsId = isset($ProductsId) ? $ProductsId : 0;
+        if ($ProductsId > 0) {
+            $test = $this->Products_mdl->get_products($ProductsId);
+            if (!empty($test[0]['ProductsId'])) {
+                $this->Products_mdl->delete_products($ProductsId);
+                $message = [
+                    'ProductsId' => $ProductsId,
+                    'message' => 'Deleted the resource',
+                ];
+                $this->set_response($message, REST_Controller::HTTP_OK);
+            } else {
+                $message = [
+                    'ProductsId' => $ProductsId,
+                    'message' => 'This ID is not exists',
+                ];
+                $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+            }
+        }
+
+    }
+    
     public function products3_get()
     {
 //        if ($this->session->userdata('logged_in') == 1) {

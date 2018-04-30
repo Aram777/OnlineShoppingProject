@@ -8,42 +8,51 @@ class Login_ctl extends REST_Controller
     {
         $result_log = -1;
         $msgres='session is expierd';
-        $email = $this->get('email');
+        $usrid = $this->get('usrId');
+        
         if ($this->session->has_userdata('logged_in')) {
-            if ($this->session->userdata('logged_in') == 1 && $this->session->userdata('email') == $email) {
+            if ($this->session->userdata('logged_in') == 1 && $this->session->userdata('userId') == $usrid) {
                 $msgres='Log in data ok';
                 $result_log = 1;
-
             }
         }
-
         $this->set_response([
             'status' => true,
-            'message' => $msgres,
+            'message' =>$msgres,
             'logged_in'=> $result_log
         ], REST_Controller::HTTP_OK); // NOT_FOUND (404) being the HTTP response code
     }
     public function login_get()
     {
+        $hasorder=0;
         $this->load->model('Systemusers_mdl');
         $email = $this->get('email');
         $pass = $this->get('password');
         if ($email && $pass) {
             $resqur = $this->Systemusers_mdl->validate_user($email, $pass);
-            if ($resqur['ChkData'] == 123) {
+            if ($resqur['userId'] > 0) {
+                $this->load->model('Orders_mdl');
+                $orders=$this->Orders_mdl->get_userorder($resqur['userId']);
+                if (count($orders) >0) {
+                    $hasorder=count($orders);
+                }
 
                 $this->set_response([
                     'status' => true,
                     'message' => 'login succeed',
-                    'isAdmin' => 1,
-                    'username' => $resqur['UserFirstName'],
+                    'isAdmin' => $resqur['isAdmin'],
+                    'username' => $resqur['username'],
+                    'userId'=>$resqur['userId'],
+                    'hasorder'=>$hasorder
                 ], REST_Controller::HTTP_OK); // NOT_FOUND (404) being the HTTP response code
             } else {
                 $this->set_response([
                     'status' => false,
                     'message' => 'login failed',
-                    'isAdmin' => 0,
-                    'username' => 'kashk',
+                    'isAdmin' => -1,
+                    'username' => 'khali',//$resqur['username'],
+                    'userId'=>-1,
+                    'hasorder'=>$hasorder
                 ], REST_Controller::HTTP_OK); // NOT_FOUND (404) being the HTTP response code
 
             }

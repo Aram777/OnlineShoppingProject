@@ -19,6 +19,8 @@ class Orders_mdl extends CI_model
         $this->db->select('*');
         $this->db->from('productandorderview');
         $this->db->where('SystemUsersId', $SystemUsersId);
+        $this->db->where('OrderStatus', 1);
+//        $this->db->limit(4);
         return $this->db->get()->result_array();
     }
 

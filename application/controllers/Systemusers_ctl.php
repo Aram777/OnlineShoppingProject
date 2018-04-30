@@ -38,26 +38,22 @@ class Systemusers_ctl extends REST_Controller
     {
 
         // Add a new systemusers
+        $email=$this->post('UserEmail');
+        $password=sha1($this->post('UserPass'));
         $add_data = array(
 
             'UserFirstName' => $this->post('UserFirstName'),
             'UserLastName' => $this->post('UserLastName'),
             'UserEmail' => $this->post('UserEmail'),
-            'UserType' => $this->post('UserType'),
-            'UserState' => $this->post('UserState'),
+            'UserType' =>1,
+            'UserState' => 1,
             'UserAddress' => $this->post('UserAddress'),
-            'UserPass' => $this->post('UserPass'),
+            'UserPass' => $this->post('UserPass') //sha1($this->post('UserPass')),
         );
         $this->Systemusers_mdl->add_systemusers($add_data);
+        $this->Systemusers_mdl->validate_user($email, $password);
         $message = [
 
-            'UserFirstName' => $this->post('UserFirstName'),
-            'UserLastName' => $this->post('UserLastName'),
-            'UserEmail' => $this->post('UserEmail'),
-            'UserType' => $this->post('UserType'),
-            'UserState' => $this->post('UserState'),
-            'UserAddress' => $this->post('UserAddress'),
-            'UserPass' => $this->post('UserPass'),
             'message' => 'Added a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code

@@ -108,7 +108,8 @@ class Orders_ctl extends REST_Controller
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
 
     }
-    public function orders_delete()
+
+    public function ordersdel_get()
     {
         $OrdersId = $this->get('OrdersId');
         if ($OrdersId <= 0) {
@@ -126,6 +127,59 @@ class Orders_ctl extends REST_Controller
             $message = "Error";
             $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
         }
+
+    }
+
+    public function orders_delete()
+    {
+        $OrdersId = $this->get('OrdersId');
+        $OrdersId = isset($OrdersId) ? $OrdersId : 0;
+        if ($OrdersId > 0) {
+            $test = $this->Orders_mdl->get_orders($OrdersId);
+            if (!empty($test[0]['OrdersId'])) {
+                $this->Orders_mdl->delete_orders($OrdersId);
+                $message = [
+                    'OrdersId' => $OrdersId,
+                    'message' => 'Deleted the resource',
+                ];
+                $this->set_response($message, REST_Controller::HTTP_OK);
+            } else {
+                $message = [
+                    'OrdersId' => $OrdersId,
+                    'message' => 'This ID is not exists',
+                ];
+                $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+            }
+        }
+
+    }
+    public function orderscart_post()
+    {
+        // Add a new order
+        $this->load->model('Products_mdl');
+        $test = $this->Products_mdl->get_products($ProductsId);
+        $OrderPrice=$test[0]['DiscountPrice'];
+
+        $DiscountsId=NULL;
+        $OrdersDate=date("Y/m/d");
+        $OrderStatus=1;
+        $ProductRate=1;
+        $OrderQuantity=1;
+        $add_data = array(
+            'SystemUsersId' => $this->post('SystemUsersId'),
+            'ProductsId' => $this->post('ProductsId'),
+            'DiscountsId' =>$DiscountsId,
+            'OrdersDate' => $OrdersDate,
+            'OrderStatus' =>$OrderStatus,
+            'ProductRate' => $ProductRate,
+            'OrderQuantity' => $OrderQuantity,
+            'OrderPrice' => $OrderPrice
+        );
+        $this->Orders_mdl->add_orders($add_data);
+        $message = [
+            'message' => 'Added a resource',
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
 
     }
 

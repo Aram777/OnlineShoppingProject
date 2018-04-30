@@ -16,6 +16,7 @@ class Systemusers_mdl extends CI_model
     public function add_systemusers($add_data)
     {
         $this->db->insert('systemusers', $add_data);
+
     }
     public function update_systemusers($SystemUsersId, $update_data)
     {
@@ -32,40 +33,34 @@ class Systemusers_mdl extends CI_model
     {
         $this->db->from('systemusers');
         $this->db->where('UserEmail', $email);
-        $this->db->where('UserPass', $password); //sha1($password) );
+        $this->db->where('UserPass',$password); // sha1($password));
         $this->db->where('UserState', 1);
         $login = $this->db->get()->result_array();
-        $resultlog = array();
+        $newdata = array(
+            'userId' => -1,
+            'username' => 'khali',
+            'email' => 'khali',
+            'isAdmin' => 'khali',
+            'logged_in' => 0
+        );
+   
         if (is_array($login) && count($login) == 1) {
-            $newdata = array(
-                'userId' => $login[0]['SystemUsersId'],
-                'username' => $login[0]['UserFirstName'],
-                'email' => $email,
-                'isAdmin' => $login[0]['UserType'],
-                'logged_in' => 1,
-            );
+                $newdata['userId'] = $login[0]['SystemUsersId'];
+                $newdata['username'] = $login[0]['UserFirstName'];
+                $newdata['email'] = $email;
+                $newdata['isAdmin'] = $login[0]['UserType'];
+                $newdata['logged_in'] = 1;
             $this->session->set_userdata($newdata);
-            $resultlog = array(
-                'ChkData' => 123,
-                'UserFirstName' => $login[0]['UserFirstName'],
-                'isAdmin' => $login[0]['UserType'],
-                'logged_in' => 1);
         } else {
-            $newdata = array(
-                'userId' => -1,
-                'username' => 'beshkan',
-                'email' => '',
-                'isAdmin' => -1,
-                'logged_in' => 0,
-            );
+            $newdata['userId'] = -1; //$login[0]['SystemUsersId'],
+            $newdata['username'] = 'beshkan';
+            $newdata['email'] = 'khali';
+            $newdata['isAdmin'] = -1;
+            $newdata['logged_in'] = 0;
+
             $this->session->set_userdata($newdata);
-            $resultlog = array(
-                'ChkData' => 111,
-                'UserFirstName' => 'hichi',
-                'isAdmin' => -1,
-                'logged_in' => 0);
         }
-        return $resultlog;
+        return $newdata;
     }
 
 }

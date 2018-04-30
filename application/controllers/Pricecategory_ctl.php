@@ -3,7 +3,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 
-
 class Pricecategory_ctl extends REST_Controller
 {
 
@@ -19,6 +18,30 @@ class Pricecategory_ctl extends REST_Controller
         $this->methods['pricecategory_delete']['limit'] = 50; // 50 requests per hour per user/key
         $this->load->model('Pricecategory_mdl');
     }
+    public function pricecategorydel_get()
+    {
+        $PriceCategoryId = $this->get('PriceCategoryId');
+        $PriceCategoryId = isset($PriceCategoryId) ? $PriceCategoryId : 0;
+        if ($PriceCategoryId > 0) {
+            $test = $this->Pricecategory_mdl->get_pricecategory($PriceCategoryId);
+            if (!empty($test[0]['PriceCategoryId'])) {
+                $this->Pricecategory_mdl->delete_pricecategory($PriceCategoryId);
+                $message = [
+                    'PriceCategoryId' => $PriceCategoryId,
+                    'message' => 'Deleted the resource',
+                ];
+                $this->set_response($message, REST_Controller::HTTP_OK);
+            } else {
+                $message = [
+                    'PriceCategoryId' => $PriceCategoryId,
+                    'message' => 'This ID is not exists',
+                ];
+                $this->set_response($message, REST_Controller::HTTP_NO_CONTENT); // NO_CONTENT (204) being the HTTP response code
+            }
+        }
+
+    }
+
     public function pricecategory_get()
     {
         $PriceCategoryId = $this->get('PriceCategoryId');
