@@ -38,4 +38,15 @@ class Orders_mdl extends CI_model
         $this->db->where('OrdersId', $OrdersId);
         $this->db->delete('orders');
     }
+    public function updateshopcart($SystemUsersId)
+    {
+        $update_data = array(
+            'OrderStatus' => 3,
+        );
+
+        $this->db->where('SystemUsersId', $SystemUsersId);
+        $this->db->where('OrderStatus', 1);
+        $this->db->update('orders', $update_data);
+
+    }
 }

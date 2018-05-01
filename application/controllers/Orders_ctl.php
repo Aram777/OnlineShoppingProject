@@ -77,6 +77,15 @@ class Orders_ctl extends REST_Controller
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
 
     }
+    public function ordersupd_get(){
+        $SystemUsersId = $this->get('SystemUsersId');
+        $this->Orders_mdl->updateshopcart($SystemUsersId);
+        $message = [
+            'message' => 'Updates a resource',
+        ];
+        $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
+        
+    }
     public function orders_put()
     {
         // Update the orders
@@ -84,25 +93,13 @@ class Orders_ctl extends REST_Controller
         $OrdersId = $this->put('OrdersId');
         $ppp = $OrdersId;
         $update_data = array(
-            'SystemUsersId' => $this->put('SystemUsersId'),
-            'ProductsId' => $this->put('ProductsId'),
-            'DiscountsId' => $this->put('DiscountsId'),
-            'OrdersDate' => $this->put('OrdersDate'),
             'OrderStatus' => $this->put('OrderStatus'),
-            'ProductRate' => $this->put('ProductRate'),
-            'OrderQuantity' => $this->put('OrderQuantity'),
-            'OrderPrice' => $this->put('OrderPrice'),
+            'OrderQuantity' => $this->put('OrderQuantity')
         );
         $this->Orders_mdl->update_orders($OrdersId, $update_data);
         $message = [
-            'SystemUsersId' => $this->put('SystemUsersId'),
-            'ProductsId' => $this->put('ProductsId'),
-            'DiscountsId' => $this->put('DiscountsId'),
-            'OrdersDate' => $this->put('OrdersDate'),
             'OrderStatus' => $this->put('OrderStatus'),
-            'ProductRate' => $this->put('ProductRate'),
             'OrderQuantity' => $this->put('OrderQuantity'),
-            'OrderPrice' => $this->put('OrderPrice'),
             'message' => 'Updates a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -156,6 +153,7 @@ class Orders_ctl extends REST_Controller
     public function orderscart_post()
     {
         // Add a new order
+        $ProductsId=$this->post('ProductsId');
         $this->load->model('Products_mdl');
         $test = $this->Products_mdl->get_products($ProductsId);
         $OrderPrice=$test[0]['DiscountPrice'];
@@ -167,7 +165,7 @@ class Orders_ctl extends REST_Controller
         $OrderQuantity=1;
         $add_data = array(
             'SystemUsersId' => $this->post('SystemUsersId'),
-            'ProductsId' => $this->post('ProductsId'),
+            'ProductsId' => $ProductsId,
             'DiscountsId' =>$DiscountsId,
             'OrdersDate' => $OrdersDate,
             'OrderStatus' =>$OrderStatus,
@@ -177,6 +175,7 @@ class Orders_ctl extends REST_Controller
         );
         $this->Orders_mdl->add_orders($add_data);
         $message = [
+            'prc'=>$OrderPrice,
             'message' => 'Added a resource',
         ];
         $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
