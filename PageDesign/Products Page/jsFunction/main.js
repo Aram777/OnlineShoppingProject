@@ -25,8 +25,8 @@ function GetProducts() {
                     '  <i class="ion-android-list"></i>' +
                     ' </a>' +
                     '</div>' +
-                    '<figcaption>' +
-                    '<h3>' + jsonData[x].ProductName + '</h3>' +
+                    '<figcaption class="figcaption">' +
+                    '<h4 class="small">' + jsonData[x].ProductName + '</h4>' +
                     '<div class="price">';
                 if (jsonData[x].DiscountPercent == 0) {
                     data +=

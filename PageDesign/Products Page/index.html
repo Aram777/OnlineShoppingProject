@@ -86,7 +86,7 @@
             <div class="col-2 col-xs-2 col-md-2 age">
               <img src="images/age/1.png" class="img-fluid" alt="Responsive image">
               <div class="middle">
-                <div class="text text-nowrap text-light">0-2</div>
+                <div class="text text-nowrap text-light href="#"">0-2</div>
               </div>
             </div>
             <!-- <div class="col-2 col-xs-2 col-md-2 age">
@@ -98,19 +98,19 @@
             <div class="col-2 col-xs-2 col-md-2 age">
               <img src="images/age/3.png" class="img-fluid" alt="Responsive image">
               <div class="middle">
-                <div class="text text-nowrap text-light">6-8</div>
+                <div class="text text-nowrap text-light" href="#">6-8</div>
               </div>
             </div>
             <div class="col-2 col-xs-2 col-md-2 age">
-              <img src="images/age/4.png" class="img-fluid" alt="Responsive image">
+              <img src="images/age/4.png" class="img-fluid" alt="Responsive image" >
               <div class="middle">
-                <div class="text text-nowrap text-light">10-12</div>
+                <div class="text text-nowrap text-light" href="#">10-12</div>
               </div>
             </div>
             <div class="col-2 col-xs-2 col-md-2 age">
               <img src="images/age/5.png" class="img-fluid" alt="Responsive image">
               <div class="middle">
-                <div class="text text-nowrap text-light">12-14</div>
+                <div class="text text-nowrap text-light" href="#">12-14</div>
               </div>
             </div>
           </div>
@@ -119,25 +119,24 @@
     </div>
 
     <hr>
-
-    <div class="pl-5 sticky-filter">
-      <div class="row">
-        <div class="col-4">
-          <h4 class="myh4"> Sort by: </h4>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="ml-5 pl-3 py-auto sticky-filter">
+          <h4 class="myh4"> Sort products by price: </h4>
           <select>
             <option>Low to high</option>
             <option>High to low</option>
-            <option>Most popular</option>
-            <option>Newest</option>
           </select>
+          <br>
+          <br>
           <h4 class="myh4"> Price Range: </h4>
           <input type="number" id="Minimum" placeholder="5$">
           <input type="number" id="Maximum" placeholder="100$">
         </div>
       </div>
-    </div>
 
-    <div class="container-fluid" id="products" style="height: 1080px;">
+        <div class="col-md-9 text-right" id="products">
+        </div>
     </div>
 
       <!-- LOGIN MODAL -->
@@ -285,7 +284,6 @@
         </div>
       </div>
       <!-- END OF REGISTER MODAL -->
-
       <footer style="background-color: #FEF377 !important;">
         <nav class="navbar navbar-expand-lg navbar-light px-3 myh5" style="background-color: #FEF377 !important;">
           <div class="container pt-5">

@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,700');
 @import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
 .snip1583 {
-  font-family: 'Fira Sans Extra Condensed', Arial, sans-serif;
+  font-family: 'Jua', sans-serif;
   position: relative;
   display: inline-block;
   overflow: hidden;
   margin: 8px;
-  min-width: 230px;
-  max-width: 315px;
+  min-width: 200px;
+  max-width: 200px;
   width: 100%;
-  font-size: 16px;
+  font-size: 27px;
   background-color: #fff;
   color: #111;
   line-height: 1.2em;
