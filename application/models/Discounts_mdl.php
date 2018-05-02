@@ -7,8 +7,8 @@ class Discounts_mdl extends CI_model
     public function get_discounts($discountsId)
     {
         $sqltxt='discountsId, PriceCatPerecent, ifnull((select tt.discountsId from products tt where tt.discountsId= discounts.discountsId limit 1),0) as Chkuse ';
-        $this->db->select($sqltxt);
-        $this->db->from('discounts');
+        $this->db->select('*');
+        $this->db->from('discountview');
         if ($discountsId > 0) {
             $this->db->where('discountsId', $discountsId);
 
